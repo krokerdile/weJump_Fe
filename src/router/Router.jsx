@@ -8,12 +8,14 @@ import Account from "../pages/Account";
 
 const Router = () => {
   return (
-    <Routes element={<Layout />}>
-      <Route path="/weJump_Fe/" element={<Index />} />
-      <Route path="/weJump_Fe/Courses" element={<Courses />} />
-      <Route path="/weJump_Fe/Clubs" element={<Clubs />} />
-      <Route path="/weJump_Fe/Event" element={<Event />} />
-      <Route path="/weJump_Fe/Account" element={<Account />} />
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/weJump_Fe/" element={<Index />} />
+        <Route path="/weJump_Fe/Courses" element={<Courses />} />
+        <Route path="/weJump_Fe/Clubs" element={<Clubs />} />
+        <Route path="/weJump_Fe/Event" element={<Event />} />
+        <Route path="/weJump_Fe/Account" element={<Account />} />
+      </Route>
     </Routes>
   );
 };
