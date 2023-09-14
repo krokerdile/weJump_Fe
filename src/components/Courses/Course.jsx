@@ -1,32 +1,26 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Course = () => {
+const Course = ({ imgSrc, courseName, mentorName, studentCount, studentMaxNum }) => {
     return (
-      <CourseBox>
+      <div className="CourseBox">
         <div className="ImgBox">
-            <img>
-            
-            </img>
+            <img src={imgSrc} alt={courseName} />
         </div>
         <div className="DetailsBox">
             <div className="CourseName">
-                Python
+                {courseName}
             </div>
             <div className="MentorName">
-                JDP
+                {mentorName}
             </div>
             <div className="StudentCountBox">
-                <img>
-                
-                </img>
                 <div className="StudentCount">
-                    50/50
+                    {studentCount}/{studentMaxNum}
                 </div>
             </div>
-            
         </div>
-      </CourseBox>
+      </div>
     );
 };
 
