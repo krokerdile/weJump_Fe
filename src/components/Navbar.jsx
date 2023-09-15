@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <NavbarWrapper>
       <Link to="/weJump_Fe/">
-        <Logo src="./public/assets/image/Logo.png" />
+        <Logo src="/assets/image/Logo.png" />
       </Link>
       <Link to="/weJump_Fe/Courses">
         <p>Courses</p>
