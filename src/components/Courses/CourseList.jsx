@@ -1,5 +1,6 @@
 import React from "react";
 import Course from "./Course";
+import {Link} from "react-router-dom";
 
 const CourseList = ({ courses }) => {
     return (
@@ -8,6 +9,7 @@ const CourseList = ({ courses }) => {
                 <Course
                     key={index}
                     imgSrc={course.imgSrc}
+                    courseID= {course.courseID}
                     courseName={course.courseName}
                     mentorName={course.mentorName}
                     studentCount={course.studentCount}

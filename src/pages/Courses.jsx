@@ -1,9 +1,11 @@
 import React from "react";
 import CourseList from "../components/Courses/CourseList";
+import CoursePage from "./CoursePage";
 
 const EnrolledCourses = [
   {
       imgSrc: "img1.jpg",
+      courseID: "1",
       courseName: "Python",
       mentorName: "professor1",
       studentCount: "30",
@@ -11,6 +13,7 @@ const EnrolledCourses = [
   },
   {
       imgSrc: "img2.jpg",
+      courseID: "2",
       courseName: "JavaScript",
       mentorName: "professor2",
       studentCount: "40",
@@ -21,6 +24,7 @@ const EnrolledCourses = [
 const OngoingCourses = [
   {
       imgSrc: "img1.jpg",
+      courseID: "3",
       courseName: "Python",
       mentorName: "professor1",
       studentCount: "30",
@@ -28,6 +32,7 @@ const OngoingCourses = [
   },
   {
       imgSrc: "img2.jpg",
+      courseID: "4",
       courseName: "JavaScript",
       mentorName: "professor2",
       studentCount: "40",
@@ -35,6 +40,7 @@ const OngoingCourses = [
   },
   {
     imgSrc: "img3.jpg",
+    courseID: "5",
     courseName: "Java",
     mentorName: "professor3",
     studentCount: "50",
@@ -45,6 +51,7 @@ const OngoingCourses = [
 const PastEnrollment = [
   {
       imgSrc: "img1.jpg",
+      courseID: "6",
       courseName: "C++",
       mentorName: "professor1",
       studentCount: "45",
