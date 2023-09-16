@@ -17,15 +17,15 @@ const WeekData = [
     },
 ];
 
-const CoursePageCourses = () => {
+const CoursePageSyllabus = () => {
     return (
       <CoursePageCoursesWrapper>
-          <WeekList weeks={WeekData}/>
+          <WeekList courses={WeekData}/>
       </CoursePageCoursesWrapper>
     );
   };
   
-  export default CoursePageCourses;
+  export default CoursePageSyllabus;
 
   const CoursePageCoursesWrapper = styled.div`
   display: flex;

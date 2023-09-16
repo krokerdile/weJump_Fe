@@ -1,12 +1,13 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
 
-const CoursePageNav = () => {
+const CoursePageNav = ({ onCourseClick, onSyllabusClick, onNoticeClick }) => {
   return (
     <CoursePageNavWrapper>
-        <Link>Courses</Link>
-        <Link>Syllabus</Link>
-        <Link>Notice</Link>
+      <Link to="#" onClick={onCourseClick}>Course</Link>
+      <Link to="#" onClick={onSyllabusClick}>Syllabus</Link>
+      <Link to="#" onClick={onNoticeClick}>Notice</Link>
     </CoursePageNavWrapper>
   );
 };

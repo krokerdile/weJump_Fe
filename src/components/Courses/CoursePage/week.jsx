@@ -1,29 +1,29 @@
-import styled from "styled-components";
-import {Link} from "react-router-dom";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React, { useState } from "react";
 
-const week = () => {
-    return (
-        <Accordion>
-            <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-            >
-                <Typography>Accordion 1</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
-                </Typography>
-            </AccordionDetails>
-        </Accordion>
-    );
+const Week = ({ WeekNum, video, assignment, discussion }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsExpanded((prevState) => !prevState);
   };
-  
-  export default week;
+
+  return (
+    <div className="week">
+      <div className="week-header" onClick={toggleAccordion}>
+        <span>Week{WeekNum}</span>
+        <span className={`expand-icon ${isExpanded ? "expanded" : ""}`}>
+          {isExpanded ? "-" : "+"}
+        </span>
+      </div>
+      {isExpanded && (
+        <div className="week-details">
+          {video && <div>Video: {video}</div>}
+          {assignment && <div>Assignment: {assignment}</div>}
+          {discussion && <div>Discussion: {discussion}</div>}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Week;

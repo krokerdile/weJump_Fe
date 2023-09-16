@@ -1,7 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import CoursePageNav from "../components/Courses/CoursePage/CoursePageNav";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import CoursePageNav from "../components/Courses/CoursePage/CoursePageNav";
+import CoursePageCourses from "../components/Courses/CoursePage/CoursePageCourses";
+import CoursePageNotice from "../components/Courses/CoursePage/CoursePageNotice";
+import CoursePageSyllabus from "../components/Courses/CoursePage/CoursePageSyllabus";
+import ToDo from "../components/Courses/CoursePage/ToDo";
 
 const EnrolledCourses = [
     {
@@ -23,9 +26,22 @@ const EnrolledCourses = [
 ];
 
 const CoursePage = () => {
-    const {courseID}=useParams();
+    const { courseID } = useParams();
+    const [selectedNavItem, setSelectedNavItem] = useState("Course");
 
     const course = EnrolledCourses.find((course) => course.courseID === courseID);
+
+    const handleCourseClick = () => {
+        setSelectedNavItem("Course");
+    };
+
+    const handleSyllabusClick = () => {
+        setSelectedNavItem("Syllabus");
+    };
+
+    const handleNoticeClick = () => {
+        setSelectedNavItem("Notice");
+    };
     return (
       <>
         <div>
@@ -42,8 +58,17 @@ const CoursePage = () => {
                 </div>
             </div>
             <div className="CoursePageMainWrapper">
-                <CoursePageNav/>
-                <h3>courseID : {courseID}</h3>
+                <CoursePageNav
+                onCourseClick={handleCourseClick}
+                onNoticeClick={handleNoticeClick}
+                onSyllabusClick={handleCourseClick}
+                />
+                <div className="DetailWrapper">
+                    {selectedNavItem === "Course" && <CoursePageCourses />}
+                    {selectedNavItem === "Syllabus" && <CoursePageSyllabus />}
+                    {selectedNavItem === "Notice" && <CoursePageNotice />}
+                </div>
+                <ToDo/>
             </div>
         </div>
       </>

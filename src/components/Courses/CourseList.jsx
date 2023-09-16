@@ -1,10 +1,11 @@
 import React from "react";
 import Course from "./Course";
 import {Link} from "react-router-dom";
+import styled from "styled-components";
 
 const CourseList = ({ courses }) => {
     return (
-        <div>
+        <CoursesWrapper>
             {courses.map((course, index) => (
                 <Course
                     key={index}
@@ -16,8 +17,15 @@ const CourseList = ({ courses }) => {
                     studentMaxNum={course.studentMaxNum}
                 />
             ))}
-        </div>
+        </CoursesWrapper>
     );
 };
 
 export default CourseList;
+
+const CoursesWrapper = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap:1rem;
+`;
