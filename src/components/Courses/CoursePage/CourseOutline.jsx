@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Week = ({ weekNum, video, assignment, discussion }) => {
+const CourseOutline = ({ outline }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleAccordion = () => {
@@ -9,30 +9,28 @@ const Week = ({ weekNum, video, assignment, discussion }) => {
   };
 
   return (
-    <WeekBox>
-      <WeekHeader onClick={toggleAccordion}>
-        <span>Week {weekNum}</span>
+    <OutlineBox>
+      <OutlineHeader onClick={toggleAccordion}>
+        <span>Course Outline</span>
         <ExpandIcon isExpanded={isExpanded}>+</ExpandIcon>
-      </WeekHeader>
-      <WeekDetails isExpanded={isExpanded}>
-        {video && <div>Video: {video}</div>}
-        {assignment && <div>Assignment: {assignment}</div>}
-        {discussion && <div>Discussion: {discussion}</div>}
-      </WeekDetails>
-    </WeekBox>
+      </OutlineHeader>
+      <OutlineDetails isExpanded={isExpanded}>
+        {outline && <div>{outline}</div>}
+      </OutlineDetails>
+    </OutlineBox>
   );
 };
 
-export default Week;
+export default CourseOutline;
 
-const WeekBox = styled.div`
+const OutlineBox = styled.div`
   border: 2px solid #ccc;
   margin-bottom: 20px;
   width:100%;
   align-items: left;
 `;
 
-const WeekHeader = styled.div`
+const OutlineHeader = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -46,7 +44,7 @@ const ExpandIcon = styled.span`
   transition: transform 0.3s ease-in-out;
 `;
 
-const WeekDetails = styled.div`
+const OutlineDetails = styled.div`
   max-height: ${(props) => (props.isExpanded ? "none" : "0")};
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;

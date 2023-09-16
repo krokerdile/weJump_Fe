@@ -1,9 +1,10 @@
 import React from "react";
 import Week from "./week";
+import styled from "styled-components";
 
 const WeekList = ({ weeks }) => {
   return (
-    <div>
+    <WeekListWrapper>
       {weeks.map((weekData, index) => (
         <Week
           key={index}
@@ -13,8 +14,15 @@ const WeekList = ({ weeks }) => {
           discussion={weekData.discussion}
         />
       ))}
-    </div>
+    </WeekListWrapper>
   );
 };
 
 export default WeekList;
+
+const WeekListWrapper = styled.div`
+  margin:10px;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+`;

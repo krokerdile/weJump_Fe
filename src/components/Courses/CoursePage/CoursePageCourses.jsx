@@ -4,13 +4,13 @@ import WeekList from "./weekList";
 
 const WeekData = [
     {
-      WeekNum: 1,
+      weekNum: 1,
       video: "Video Title 1",
       assignment: "Assignment Title 1",
       discussion: "Discussion Topic 1",
     },
     {
-      WeekNum: 2,
+      weekNum: 2,
       video: "Video Title 2",
       assignment: "Assignment Title 2",
       discussion: "Discussion Topic 2",
@@ -29,5 +29,5 @@ const CoursePageCourses = () => {
 
   const CoursePageCoursesWrapper = styled.div`
   display: flex;
-  gap: 1rem;
+  width: 90%;
 `;

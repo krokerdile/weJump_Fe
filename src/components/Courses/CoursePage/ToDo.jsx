@@ -9,12 +9,14 @@ const todolist = [
 const ToDo = () => {
     return (
         <ToDoWrapper>
-            <div>ToDo</div>
-            {todolist.map((item, index) => (
-                <Link to={``} key={index}>
-                    <div>{item}</div>
-                </Link>
-            ))}
+            <div className="todo-heading">ToDo</div>
+            <div className="todo-list">
+                {todolist.map((item, index) => (
+                    <Link to={``} key={index} className="todo-item">
+                        {item}
+                    </Link>
+                ))}
+            </div>
         </ToDoWrapper>
     );
 };
@@ -23,6 +25,26 @@ export default ToDo;
 
 const ToDoWrapper = styled.div`
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
     align-items: center;
+    border: 2px solid #ccc;
+    width: fit-content;
+    border-radius: 5px;
+
+    .todo-heading {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .todo-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+
+        .todo-item {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem;
+        }
+    }
 `;

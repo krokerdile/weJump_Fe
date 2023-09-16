@@ -1,26 +1,29 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
-import WeekList from "./weekList";
 
-const WeekData = [
+import CourseOutline from "./CourseOutline";
+import Textbook from "./Textbook";
+import Schedule from "./Schedule";
+
+const SyllabusData = [
     {
-      WeekNum: 1,
-      video: "Video Title 1",
-      assignment: "Assignment Title 1",
-      discussion: "Discussion Topic 1",
-    },
-    {
-      WeekNum: 2,
-      video: "Video Title 2",
-      assignment: "Assignment Title 2",
-      discussion: "Discussion Topic 2",
-    },
-];
+      CourseOutline:"This Course has ...",
+      TextbookAndOther : "Please write here",
+      CourseContent : [
+        {
+          LearningContent : "What is Python?",
+          Assignments : "textbook",
+          Notice : "",
+        }
+      ]
+    }
+]; 
 
 const CoursePageSyllabus = () => {
     return (
       <CoursePageCoursesWrapper>
-          <WeekList courses={WeekData}/>
+        <CourseOutline outline={SyllabusData[0].CourseOutline} />
+        <Textbook textbook={SyllabusData[0].TextbookAndOther} />
+        <Schedule courseContent={SyllabusData[0].CourseContent} />
       </CoursePageCoursesWrapper>
     );
   };
@@ -29,5 +32,7 @@ const CoursePageSyllabus = () => {
 
   const CoursePageCoursesWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 90%;
   gap: 1rem;
 `;
