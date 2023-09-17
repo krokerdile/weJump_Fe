@@ -4,12 +4,14 @@ import Text from "../../components/common/Text";
 import test from "/assets/image/test.png";
 import ClubTab from "../../components/clubs/ClubTab";
 import useClubTabStore from "../../store/useClubTabStore";
-import ClubNotice from "./ClubNotice";
-import ClubMember from "./ClubMember";
+import ClubMember from "../../components/clubs/ClubMember";
+import ClubNotice from "../../components/clubs/ClubNotice";
+import ClubInviteStatus from "../../components/clubs/ClubInviteStatus";
 
 const tabComponent = {
   Notice: ClubNotice,
   Member: ClubMember,
+  "Join/Leave Status": ClubInviteStatus,
 };
 
 const getBodyByStatus = (clubTabStatus) => {
@@ -27,6 +29,7 @@ const ClubDetail = () => {
           <Text>Club Name: {clubId}</Text>
           <Text>Hello</Text>
         </BannerBox>
+        <BannerButton>Join</BannerButton>
       </Banner>
       <ClubMainBox>
         <ClubTab />
@@ -46,15 +49,23 @@ const Banner = styled.div`
   align-items: flex-end;
   -webkit-align-items: flex-end;
   background-image: url(${test});
+  padding: 2rem;
+  justify-content: center;
 `;
 
 const BannerBox = styled.div`
-  width: 100%;
   height: 10%;
+  text-align: left;
+  display: flfex;
 `;
 
 const ClubMainBox = styled.div`
   width: 100%;
   height: 100%;
   padding: 1rem;
+`;
+
+const BannerButton = styled.button`
+  margin-left: auto;
+  width: 2rem;
 `;

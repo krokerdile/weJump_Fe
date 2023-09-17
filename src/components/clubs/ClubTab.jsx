@@ -12,6 +12,7 @@ const ClubTab = () => {
     <TabBox>
       <button onClick={() => handleTabStatus("Member")}>Member</button>
       <button onClick={() => handleTabStatus("Notice")}>Notice</button>
+      <button onClick={() => handleTabStatus("Join/Leave Status")}>Join/Leave Status</button>
       <Text>{clubTabStatus}</Text>
     </TabBox>
   );
