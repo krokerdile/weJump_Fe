@@ -7,18 +7,20 @@ const Navbar = () => {
       <Link to="/weJump_Fe/">
         <Logo src="/assets/image/Logo.png" />
       </Link>
-      <Link to="/weJump_Fe/Courses">
-        <p>Courses</p>
-      </Link>
-      <Link to="/weJump_Fe/Clubs">
-        <p>Clubs</p>
-      </Link>
-      <Link to="/weJump_Fe/Event">
-        <p>Event</p>
-      </Link>
-      <Link to="/weJump_Fe/Account">
-        <p>Account</p>
-      </Link>
+      <NavRightBox>
+        <Link to="/weJump_Fe/Courses">
+          <p>Courses</p>
+        </Link>
+        <Link to="/weJump_Fe/Clubs">
+          <p>Clubs</p>
+        </Link>
+        <Link to="/weJump_Fe/Event">
+          <p>Event</p>
+        </Link>
+        <Link to="/weJump_Fe/Account">
+          <p>Account</p>
+        </Link>
+      </NavRightBox>
     </NavbarWrapper>
   );
 };
@@ -33,4 +35,10 @@ const NavbarWrapper = styled.div`
 const Logo = styled.img`
   width: 2rem;
   height: 2rem;
+`;
+const NavRightBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  margin-left: auto;
 `;
