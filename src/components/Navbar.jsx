@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <NavbarWrapper>
       <Link to="/weJump_Fe/">
-        <p>Home</p>
+        <Logo src="/assets/image/Logo.png" />
       </Link>
       <Link to="/weJump_Fe/Courses">
         <p>Courses</p>
@@ -28,4 +28,9 @@ export default Navbar;
 const NavbarWrapper = styled.div`
   display: flex;
   gap: 1rem;
+`;
+
+const Logo = styled.img`
+  width: 2rem;
+  height: 2rem;
 `;
