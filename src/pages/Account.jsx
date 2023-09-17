@@ -1,7 +1,11 @@
+import Login from "../components/user/Login";
+
 const Account = () => {
   return (
     <>
-      <div></div>
+      <div>
+        <Login />
+      </div>
     </>
   );
 };
