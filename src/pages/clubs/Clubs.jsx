@@ -8,7 +8,7 @@ const Clubs = () => {
   const [clubList, setClubList] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    setClubList([{ name: "WeJump Studio", img: "/assets/image/test.png", user: true }]);
+    setClubList([{ name: "WeJump Studio", img: "/assets/image/test.png", user: true, id: 1 }]);
   }, []);
 
   const handleDetail = (index) => {
@@ -23,7 +23,7 @@ const Clubs = () => {
         {clubList &&
           clubList.map((club, index) => (
             <>
-              <ListCard onClick={() => handleDetail(index)} key={index} clubName={club.name} index={index} img={club.img} />
+              <ListCard onClick={() => handleDetail(club.id)} key={index} clubName={club.name} index={index} img={club.img} />
             </>
           ))}
       </ClubListWrapper>
