@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import Text from "../../components/common/Text";
+import Text from "@components/common/Text";
 import test from "/assets/image/test.png";
-import ClubTab from "../../components/clubs/ClubTab";
-import useClubTabStore from "../../store/useClubTabStore";
+import ClubTab from "@components/clubs/ClubTab";
+import useClubTabStore from "@store/useClubTabStore";
 import ClubNotice from "./ClubNotice";
 import ClubMember from "./ClubMember";
 

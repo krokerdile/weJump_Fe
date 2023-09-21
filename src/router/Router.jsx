@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import Index from "../pages/Index";
-import Layout from "../pages/Layout";
-import Courses from "../pages/Courses";
-import Clubs from "../pages/clubs/Clubs";
-import Event from "../pages/Event";
-import Account from "../pages/Account";
-import ClubDetail from "../pages/clubs/ClubDetail";
-import CoursePage from "../pages/CoursePage";
+import Index from "@pages/Index";
+import Layout from "@pages/Layout";
+import Courses from "@pages/Courses";
+import Clubs from "@pages/clubs/Clubs";
+import Event from "@pages/Event";
+import Account from "@pages/Account";
+import ClubDetail from "@pages/clubs/ClubDetail";
+import CoursePage from "@pages/CoursePage";
 
 const Router = () => {
   return (
