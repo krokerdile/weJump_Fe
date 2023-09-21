@@ -1,10 +1,10 @@
 const theme = {
   fontSize: {
-    headline1: "2.6637rem",
-    headline2: "1.5rem",
-    category: "1.6687rem",
-    bodycopy: "1.5rem",
-    caption: "1.3331rem",
+    headline1: "2rem",
+    headline2: "1.125rem",
+    category: "1.25rem",
+    bodycopy: "1.125rem",
+    caption: "1rem",
   },
   fontWeight: {
     headline1: "bold",
