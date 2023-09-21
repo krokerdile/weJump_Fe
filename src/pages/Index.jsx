@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import test from "/assets/image/test.png";
-import Text from "../components/common/Text";
+import Text from "@components/common/Text";
 
 const Index = () => {
   return (
