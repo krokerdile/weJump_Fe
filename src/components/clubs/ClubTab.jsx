@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Text from "@components/common/Text";
-import useClubTabStore from "@store/useClubTabStore";
+import Text from "../common/Text";
+import useClubTabStore from "../../store/useClubTabStore";
 
 const ClubTab = () => {
   const { setClubTabStatus, clubTabStatus } = useClubTabStore();

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import ListCard from "@components/common/ListCard";
-import Text from "@components/common/Text";
+import ListCard from "../../components/common/ListCard";
+import Text from "../../components/common/Text";
 import { useNavigate } from "react-router-dom";
 
 const Clubs = () => {
