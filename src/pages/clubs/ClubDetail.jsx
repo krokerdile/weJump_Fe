@@ -2,14 +2,16 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Text from "@components/common/Text";
 import test from "/assets/image/test.png";
-import ClubTab from "@components/clubs/ClubTab";
+import ClubTab from "@components/Club/ClubTab";
 import useClubTabStore from "@store/useClubTabStore";
-import ClubNotice from "./ClubNotice";
-import ClubMember from "./ClubMember";
+import ClubNotice from "@components/Club/ClubNotice";
+import ClubMember from "@components/Club/ClubMember";
+import ClubJoinLeaveStatus from "@components/Club/ClubJoinLeaveStatus";
 
 const tabComponent = {
   Notice: ClubNotice,
   Member: ClubMember,
+  JoinLeaveStatus: ClubJoinLeaveStatus,
 };
 
 const getBodyByStatus = (clubTabStatus) => {
@@ -25,6 +27,8 @@ const ClubDetail = () => {
       <Banner>
         <BannerBox>
           <Text>Club Name: {clubId}</Text>
+          <Text text="ClubName" fontSize="headline1" fontWeight="headline1" color="white" />
+          <Text text={clubId} fontSize="headline1" fontWeight="headline1" color="white" />
           <Text>Hello</Text>
         </BannerBox>
       </Banner>
@@ -40,17 +44,19 @@ export default ClubDetail;
 
 const Banner = styled.div`
   width: 100%;
-  height: 30%;
+  height: 31.25rem;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  -webkit-align-items: flex-end;
+  flex-direction: column;
   background-image: url(${test});
 `;
 
 const BannerBox = styled.div`
   width: 100%;
-  height: 10%;
+  height: 31.25rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 const ClubMainBox = styled.div`

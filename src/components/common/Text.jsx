@@ -15,4 +15,5 @@ const TextLine = styled.p`
   font-weight: ${(props) => props.theme.fontWeight[props.fontWeight]};
   color: ${(props) => props.theme.color[props.color]};
   text-decoration: none;
+  padding: 0;
 `;

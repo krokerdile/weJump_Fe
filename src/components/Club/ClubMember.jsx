@@ -1,4 +1,4 @@
-import MemberLogo from "../../components/clubs/MemberLogo";
+import MemberLogo from "@components/Club/MemberLogo";
 import styled from "styled-components";
 
 const ClubMember = () => {

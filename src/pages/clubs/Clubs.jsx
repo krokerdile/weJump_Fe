@@ -23,7 +23,7 @@ const Clubs = () => {
         {clubList &&
           clubList.map((club, index) => (
             <>
-              <ListCard onClick={() => handleDetail(club.id)} key={index} clubName={club.name} index={index} img={club.img} />
+              <ListCard onClick={() => handleDetail(club.id)} key={index} clubName={club.name} img={club.img} />
             </>
           ))}
       </ClubListWrapper>
@@ -33,7 +33,7 @@ const Clubs = () => {
         {clubList &&
           clubList.map((club, index) => (
             <>
-              <ListCard key={index} clubName={club.name} index={index} img={club.img} />
+              <ListCard key={index} clubName={club.name} img={club.img} />
             </>
           ))}
       </ClubListWrapper>

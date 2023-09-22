@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import Text from "../common/Text";
+import Text from "@components/common/Text";
 
 const MemberLogo = () => {
   return (
     <Member>
       <Icon src="/assets/image/Logo.png" />
-      <Text>Member</Text>
+      <Text text="member name" fontSize="bodycopy" fontWeight="bodycopy" color="black" />
     </Member>
   );
 };

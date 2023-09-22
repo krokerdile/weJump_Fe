@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import NoticeBox from "../../components/clubs/NoticeBox";
+import NoticeBox from "@components/Club/NoticeBox";
 
 const ClubNotice = () => {
   const mockData = [
