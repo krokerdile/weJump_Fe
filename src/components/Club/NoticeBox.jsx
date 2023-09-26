@@ -1,15 +1,14 @@
 import styled from "styled-components";
-import Text from "../common/Text";
+import Text from "@components/common/Text";
 
 const NoticeBox = ({ title, text, user, date }) => {
   return (
     <BoxWrapper>
-      <div>Notice Letter</div>
-      <Text>{title}</Text>
-      <Text>{text}</Text>
+      <Text text={title} fontSize="headline1" fontWeight="headline1" color="black" />
+      <Text text={text} fontSize="bodycopy" fontWeight="bodycopy" color="black" />
       <BoxFooter>
-        <Text>{user}</Text>
-        <Text>{date}</Text>
+        <Text text={user} fontSize="bodycopy" fontWeight="bodycopy" color="grey-2" />
+        <Text text={date} fontSize="bodycopy" fontWeight="bodycopy" color="grey-2" />
       </BoxFooter>
       <Divider />
     </BoxWrapper>
@@ -21,14 +20,13 @@ export default NoticeBox;
 const BoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   width: 100%;
   text-align: left;
 `;
 
 const Divider = styled.div`
   width: 100%;
-  border: solid 1px #444;
+  border: solid 0.5px #444;
 `;
 
 const BoxFooter = styled.div`

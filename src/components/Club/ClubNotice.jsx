@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import NoticeBox from "../../components/clubs/NoticeBox";
+import NoticeBox from "@components/Club/NoticeBox";
 
 const ClubNotice = () => {
   const mockData = [
     { title: "3주차_ Learning MS Office", text: "이번주에는 Microsoft Office tool에 대해 공부해보았는데요 ...", user: "user1", date: "2023.09.11" },
     { title: "3주차_ Learning MS Office", text: "이번주에는 Microsoft Office tool에 대해 공부해보았는데요 ...", user: "user1", date: "2023.09.11" },
   ];
-  console.log(mockData);
 
   return (
     <NoticeList>

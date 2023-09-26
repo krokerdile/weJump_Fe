@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ListCard from "@components/common/ListCard";
 import Text from "@components/common/Text";
 import { useNavigate } from "react-router-dom";
+import AddClubCard from "../../components/Club/AddClubCard";
 
 const Clubs = () => {
   const [clubList, setClubList] = useState([]);
@@ -23,19 +24,22 @@ const Clubs = () => {
         {clubList &&
           clubList.map((club, index) => (
             <>
-              <ListCard onClick={() => handleDetail(club.id)} key={index} clubName={club.name} index={index} img={club.img} />
+              <ListCard onClick={() => handleDetail(club.id)} key={index} clubName={club.name} img={club.img} />
             </>
           ))}
       </ClubListWrapper>
       <ClubListWrapper>
         <Text>All Club</Text>
         <br />
-        {clubList &&
-          clubList.map((club, index) => (
-            <>
-              <ListCard key={index} clubName={club.name} index={index} img={club.img} />
-            </>
-          ))}
+        <ClubList>
+          {clubList &&
+            clubList.map((club, index) => (
+              <>
+                <ListCard key={index} clubName={club.name} img={club.img} />
+              </>
+            ))}
+          <AddClubCard />
+        </ClubList>
       </ClubListWrapper>
     </>
   );
@@ -49,4 +53,11 @@ const ClubListWrapper = styled.div`
   justify-content: left;
   margin-bottom: 2rem;
   text-align: left;
+`;
+
+const ClubList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
 `;
