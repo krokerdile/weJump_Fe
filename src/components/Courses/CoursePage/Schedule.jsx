@@ -3,22 +3,16 @@ import styled from "styled-components";
 
 const tableData = [
   {
-    No: 1,
-    LearningContents: "Week 1: Introduction to React",
+    Title: "Introduction to React",
     Assignments: "Assignment 1",
-    Notice: "Important announcement regarding Assignment 1 deadline",
   },
   {
-    No: 2,
-    LearningContents: "Week 2: Components and Props",
+    Title: "Components and Props",
     Assignments: "Assignment 2",
-    Notice: "Assignment 2 submission guidelines",
   },
   {
-    No: 3,
-    LearningContents: "Week 3: State and Lifecycle",
+    Title: "State and Lifecycle",
     Assignments: "Assignment 3",
-    Notice: "Discussion forum created for Assignment 3",
   },
 ];
 
@@ -39,19 +33,17 @@ const Table = () => {
         <table>
           <thead>
             <tr>
-              <th>No.</th>
-              <th>Learning Contents</th>
-              <th>Assignments</th>
-              <th>Notice</th>
+              <th>Week</th>
+              <th>Title</th>
+              <th>Course Material</th>
             </tr>
           </thead>
           <tbody>
             {tableData.map((row, index) => (
               <tr key={index}>
-                <td>{row.No}</td>
-                <td>{row.LearningContents}</td>
+                <td>{index+1}</td>
+                <td>{row.Title}</td>
                 <td>{row.Assignments}</td>
-                <td>{row.Notice}</td>
               </tr>
             ))}
           </tbody>
