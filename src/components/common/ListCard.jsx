@@ -20,6 +20,7 @@ const CardWrapper = styled.div`
   flex-shrink: 0;
   border: solid 1px black;
   border-radius: 1rem;
+  flex-basis: 25%;
 `;
 
 const CardFooter = styled.div`

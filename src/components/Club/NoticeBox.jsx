@@ -4,7 +4,6 @@ import Text from "@components/common/Text";
 const NoticeBox = ({ title, text, user, date }) => {
   return (
     <BoxWrapper>
-      <div>Notice Letter</div>
       <Text text={title} fontSize="headline1" fontWeight="headline1" color="black" />
       <Text text={text} fontSize="bodycopy" fontWeight="bodycopy" color="black" />
       <BoxFooter>
@@ -27,7 +26,7 @@ const BoxWrapper = styled.div`
 
 const Divider = styled.div`
   width: 100%;
-  border: solid 1px #444;
+  border: solid 0.5px #444;
 `;
 
 const BoxFooter = styled.div`
