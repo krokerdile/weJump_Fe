@@ -40,7 +40,7 @@ const Notice = [
 
 Notice.reverse();
 
-const CoursePageNotice = () => {
+const CoursePageAnnouncements = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // 현재 페이지에 따라 startIndex 계산
@@ -51,7 +51,7 @@ const CoursePageNotice = () => {
   const pageCount = Math.ceil(Notice.length / pageSize);
 
   return (
-    <CoursePageNoticeWrapper>
+    <CoursePageAnnouncementWrapper>
       <table>
         <thead>
           <tr>
@@ -84,13 +84,13 @@ const CoursePageNotice = () => {
           </PageNumber>
         ))}
       </Pagination>
-    </CoursePageNoticeWrapper>
+    </CoursePageAnnouncementWrapper>
   );
 };
 
-export default CoursePageNotice;
+export default CoursePageAnnouncements;
 
-const CoursePageNoticeWrapper = styled.div`
+const CoursePageAnnouncementWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;

@@ -17,7 +17,7 @@ const WeekData = [
     },
 ];
 
-const CoursePageCourses = () => {
+const CoursePageCourseMaterial = () => {
     return (
       <CoursePageCoursesWrapper>
           <WeekList weeks={WeekData}/>
@@ -25,7 +25,7 @@ const CoursePageCourses = () => {
     );
   };
   
-  export default CoursePageCourses;
+  export default CoursePageCourseMaterial;
 
   const CoursePageCoursesWrapper = styled.div`
   display: flex;

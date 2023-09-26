@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import CoursePageNav from "../components/Courses/CoursePage/CoursePageNav";
-import CoursePageCourses from "../components/Courses/CoursePage/CoursePageCourses";
-import CoursePageNotice from "../components/Courses/CoursePage/CoursePageNotice";
+import CoursePageCourseMetarial from "../components/Courses/CoursePage/CoursePageCourseMaterial";
+import CoursePageAnnouncements from "../components/Courses/CoursePage/CoursePageAnnouncements";
 import CoursePageSyllabus from "../components/Courses/CoursePage/CoursePageSyllabus";
 import ToDo from "../components/Courses/CoursePage/ToDo";
 import styled from "styled-components";
@@ -28,20 +28,20 @@ const EnrolledCourses = [
 
 const CoursePage = () => {
   const { courseID } = useParams();
-  const [selectedNavItem, setSelectedNavItem] = useState("Course");
+  const [selectedNavItem, setSelectedNavItem] = useState("Course Material");
 
   const course = EnrolledCourses.find((course) => course.courseID === courseID);
 
-  const handleCourseClick = () => {
-    setSelectedNavItem("Course");
+  const handleCourseMaterialClick = () => {
+    setSelectedNavItem("Course Material");
   };
 
   const handleSyllabusClick = () => {
     setSelectedNavItem("Syllabus");
   };
 
-  const handleNoticeClick = () => {
-    setSelectedNavItem("Notice");
+  const handleAnnouncementsClick = () => {
+    setSelectedNavItem("Announcements");
   };
 
   return (
@@ -55,15 +55,15 @@ const CoursePage = () => {
         </div>
         <div className="CoursePageMainWrapper">
           <CoursePageNav
-            onCourseClick={handleCourseClick}
+            onCourseMaterialClick={handleCourseMaterialClick}
             onSyllabusClick={handleSyllabusClick}
-            onNoticeClick={handleNoticeClick}
+            onAnnouncementsClick={handleAnnouncementsClick}
           />
           <ContentWrapper>
             <DetailWrapper>
-              {selectedNavItem === "Course" && <CoursePageCourses />}
+              {selectedNavItem === "Course Material" && <CoursePageCourseMetarial />}
               {selectedNavItem === "Syllabus" && <CoursePageSyllabus />}
-              {selectedNavItem === "Notice" && <CoursePageNotice />}
+              {selectedNavItem === "Announcements" && <CoursePageAnnouncements />}
             </DetailWrapper>
             <ToDo/>
           </ContentWrapper>

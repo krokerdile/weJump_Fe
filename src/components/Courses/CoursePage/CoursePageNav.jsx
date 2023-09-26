@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const CoursePageNav = ({ onCourseClick, onSyllabusClick, onNoticeClick }) => {
-  const [selectedNavItem, setSelectedNavItem] = useState("Course");
+const CoursePageNav = ({ onCourseMaterialClick, onSyllabusClick, onAnnouncementsClick }) => {
+  const [selectedNavItem, setSelectedNavItem] = useState("Course Material");
   const [prevNavItem, setPrevNavItem] = useState(null);
 
-  const handleCourseClick = () => {
+  const handleCourseMaterialClick = () => {
     setPrevNavItem(selectedNavItem);
-    setSelectedNavItem("Course");
-    onCourseClick();
+    setSelectedNavItem("Course Material");
+    onCourseMaterialClick();
   };
 
   const handleSyllabusClick = () => {
@@ -18,22 +18,22 @@ const CoursePageNav = ({ onCourseClick, onSyllabusClick, onNoticeClick }) => {
     onSyllabusClick();
   };
 
-  const handleNoticeClick = () => {
+  const handleAnnouncementsClick = () => {
     setPrevNavItem(selectedNavItem);
-    setSelectedNavItem("Notice");
-    onNoticeClick();
+    setSelectedNavItem("Announcements");
+    onAnnouncementsClick();
   };
 
   return (
     <CoursePageNavWrapper>
-      <Link to="#" onClick={handleCourseClick} className={selectedNavItem === "Course" ? "selected" : ""}>
-        Course
+      <Link to="#" onClick={handleCourseMaterialClick} className={selectedNavItem === "Course Material" ? "selected" : ""}>
+        Course Material
       </Link>
       <Link to="#" onClick={handleSyllabusClick} className={selectedNavItem === "Syllabus" ? "selected" : ""}>
         Syllabus
       </Link>
-      <Link to="#" onClick={handleNoticeClick} className={selectedNavItem === "Notice" ? "selected" : ""}>
-        Notice
+      <Link to="#" onClick={handleAnnouncementsClick} className={selectedNavItem === "Announcements" ? "selected" : ""}>
+        Announcements
       </Link>
     </CoursePageNavWrapper>
   );
