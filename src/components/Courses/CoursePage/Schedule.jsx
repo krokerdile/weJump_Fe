@@ -1,18 +1,27 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import assignment from "../icon/assignment.png";
+import video from "../icon/video.png";
+import read from "../icon/read.png";
 
 const tableData = [
   {
     Title: "Introduction to React",
-    Assignments: "Assignment 1",
+    Assignment: "Assignment 1",
+    Video: "video 1",
+    Read:"read 1",
   },
   {
     Title: "Components and Props",
-    Assignments: "Assignment 2",
+    Assignment: "Assignment 2",
+    Video: "video 2",
+    Read:"read 2",
   },
   {
     Title: "State and Lifecycle",
-    Assignments: "Assignment 3",
+    Assignment: "Assignment 3",
+    Video: "video 3",
+    Read:"read 3",
   },
 ];
 
@@ -43,7 +52,17 @@ const Table = () => {
               <tr key={index}>
                 <td>{index+1}</td>
                 <td>{row.Title}</td>
-                <td>{row.Assignments}</td>
+                <td>
+                  {row.Assignment && (
+                    <img src={assignment} alt="Assignment" /> // Assignment 이미지
+                  )}
+                  {row.Video && (
+                    <img src={video} alt="Video" /> // Video 이미지
+                  )}
+                  {row.Read && (
+                    <img src={read} alt="Read" /> // Read 이미지
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
