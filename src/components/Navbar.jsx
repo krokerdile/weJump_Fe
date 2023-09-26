@@ -1,11 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Text from "@components/common/Text";
+import DefaultButton from "./common/Button/DefaultButton";
+import useModalStore from "../store/useModalStore";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const handleNavigete = (url) => {
     navigate(url);
+  };
+  const { setModalType, setShowModal } = useModalStore();
+  const handleShowLoginModal = () => {
+    setModalType("LoginModal");
+    setShowModal(true);
   };
   return (
     <NavbarWrapper>
@@ -17,7 +24,8 @@ const Navbar = () => {
         <Text onClick={() => handleNavigete("/weJump_Fe/Courses")} text="Courses" fontSize="headline2" fontWeight="headline2" color="black" />
         <Text onClick={() => handleNavigete("/weJump_Fe/Clubs")} text="Clubs" fontSize="headline2" fontWeight="headline2" color="black" />
         <Text onClick={() => handleNavigete("/weJump_Fe/Event")} text="Event" fontSize="headline2" fontWeight="headline2" color="black" />
-        <Text onClick={() => handleNavigete("/weJump_Fe/Account")} text="Account" fontSize="headline2" fontWeight="headline2" color="black" />
+
+        <DefaultButton text={"login"} onClick={() => handleShowLoginModal()} background="undecided" color="white" fontWeight="headline2" />
       </NavRightBox>
     </NavbarWrapper>
   );
