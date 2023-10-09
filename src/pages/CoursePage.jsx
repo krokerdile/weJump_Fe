@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import CoursePageNav from "../components/Courses/CoursePage/CoursePageNav";
 import CoursePageCourseMetarial from "../components/Courses/CoursePage/CoursePageCourseMaterial";
@@ -6,10 +6,11 @@ import CoursePageAnnouncements from "../components/Courses/CoursePage/CoursePage
 import CoursePageSyllabus from "../components/Courses/CoursePage/CoursePageSyllabus";
 import ToDo from "../components/Courses/CoursePage/ToDo";
 import styled from "styled-components";
+import test from "/assets/image/test.png";
 
 const EnrolledCourses = [
   {
-    imgSrc: "img1.jpg",
+    imgSrc: test,
     courseID: "1",
     courseName: "Python",
     mentorName: "professor1",
@@ -17,7 +18,7 @@ const EnrolledCourses = [
     studentMaxNum: "50",
   },
   {
-    imgSrc: "img2.jpg",
+    imgSrc: test,
     courseID: "2",
     courseName: "JavaScript",
     mentorName: "professor2",
@@ -65,7 +66,7 @@ const CoursePage = () => {
               {selectedNavItem === "Syllabus" && <CoursePageSyllabus />}
               {selectedNavItem === "Announcements" && <CoursePageAnnouncements />}
             </DetailWrapper>
-            <ToDo/>
+            <ToDo />
           </ContentWrapper>
         </div>
       </div>

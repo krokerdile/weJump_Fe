@@ -15,8 +15,8 @@ const ListCard = (props) => {
 export default ListCard;
 
 const CardWrapper = styled.div`
-  width: 20.8125rem;
-  height: 22.5rem;
+  width: 15rem;
+  height: 15rem;
   flex-shrink: 0;
   border: solid 1px black;
   border-radius: 1rem;
@@ -32,8 +32,8 @@ const CardFooter = styled.div`
 `;
 
 const CardCover = styled.img`
-  width: 333px;
-  height: 183px;
+  width: 15rem;
+  height: 7rem;
   flex-shrink: 0;
   border-radius: 10px 10px 0px 0px;
   background: url(<path-to-image>), lightgray 50% / cover no-repeat;
