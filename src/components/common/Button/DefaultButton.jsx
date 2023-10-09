@@ -23,4 +23,5 @@ const ButtonWrapper = styled.button`
   background: ${(props) => props.theme.color[props.background]};
   color: ${(props) => props.theme.color[props.color]};
   font-weight: ${(props) => props.theme.fontWeight[props.fontWeight]};
+  min-height: 2rem;
 `;

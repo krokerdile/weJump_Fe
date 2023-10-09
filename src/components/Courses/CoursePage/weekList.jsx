@@ -6,13 +6,7 @@ const WeekList = ({ weeks }) => {
   return (
     <WeekListWrapper>
       {weeks.map((weekData, index) => (
-        <Week
-          key={index}
-          weekNum={weekData.weekNum}
-          video = {weekData.video}
-          assignment={weekData.assignment}
-          discussion={weekData.discussion}
-        />
+        <Week key={index} weekNum={weekData.weekNum} video={weekData.video} assignment={weekData.assignment} discussion={weekData.discussion} />
       ))}
     </WeekListWrapper>
   );
@@ -21,8 +15,8 @@ const WeekList = ({ weeks }) => {
 export default WeekList;
 
 const WeekListWrapper = styled.div`
-  margin:10px;
-  align-items:center;
-  justify-content:center;
-  width:100%;
+  margin-right: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;

@@ -35,7 +35,7 @@ const LoginModalWrapper = styled.div`
   background: ${(props) => props.theme.color["white"]};
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0.5rem 1rem 1rem;
+  padding: 0.5rem 1rem;
   gap: 3rem;
 `;
 

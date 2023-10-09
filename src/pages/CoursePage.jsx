@@ -48,12 +48,12 @@ const CoursePage = () => {
   return (
     <>
       <div>
-        <div className="CourseDetail">
-          <img src={course.imgSrc} />
+        <CourseDetail>
+          <Banner src={course.imgSrc} />
           <h3 className="CourseName">{course.courseName}</h3>
           <div className="CourseMentor">{course.mentorName}</div>
           <div className="CourseInfo"></div>
-        </div>
+        </CourseDetail>
         <div className="CoursePageMainWrapper">
           <CoursePageNav
             onCourseMaterialClick={handleCourseMaterialClick}
@@ -88,4 +88,15 @@ const DetailWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const CourseDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+`;
+
+const Banner = styled.img`
+  width: 100%;
+  height: 20.5rem;
 `;

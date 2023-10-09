@@ -75,11 +75,7 @@ const CoursePageAnnouncements = () => {
 
       <Pagination>
         {Array.from({ length: pageCount }, (_, index) => (
-          <PageNumber
-            key={index + 1}
-            onClick={() => setCurrentPage(index + 1)}
-            active={currentPage === index + 1}
-          >
+          <PageNumber key={index + 1} onClick={() => setCurrentPage(index + 1)} active={currentPage === index + 1}>
             {index + 1}
           </PageNumber>
         ))}
@@ -94,8 +90,8 @@ const CoursePageAnnouncementWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 90%;
-
+  width: 100%;
+  margin-right: 1rem;
   table {
     width: 100%;
     border-collapse: collapse;
