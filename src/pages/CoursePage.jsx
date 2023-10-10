@@ -50,6 +50,10 @@ const CoursePage = () => {
     setSelectedNavItem("Manage Course");
   };
 
+  const handleNavbarClick = (text) => {
+    setSelectedNavItem(text);
+  };
+
   return (
     <>
       <div>
@@ -61,6 +65,7 @@ const CoursePage = () => {
         </CourseDetail>
         <div className="CoursePageMainWrapper">
           <CoursePageNav
+            onClick={handleNavbarClick}
             onCourseMaterialClick={handleCourseMaterialClick}
             onSyllabusClick={handleSyllabusClick}
             onAnnouncementsClick={handleAnnouncementsClick}
@@ -93,7 +98,6 @@ const ContentWrapper = styled.div`
 const DetailWrapper = styled.div`
   flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
 `;
 

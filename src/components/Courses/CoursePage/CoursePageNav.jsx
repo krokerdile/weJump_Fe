@@ -2,46 +2,27 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const CoursePageNav = ({ onCourseMaterialClick, onSyllabusClick, onAnnouncementsClick, onManageCourseClick }) => {
+const CoursePageNav = ({ onClick, onCourseMaterialClick, onSyllabusClick, onAnnouncementsClick, onManageCourseClick }) => {
   const [selectedNavItem, setSelectedNavItem] = useState("Course Material");
   const [prevNavItem, setPrevNavItem] = useState(null);
 
-  const handleCourseMaterialClick = () => {
+  const handleNavbarClick = (text) => {
     setPrevNavItem(selectedNavItem);
-    setSelectedNavItem("Course Material");
-    onCourseMaterialClick();
+    setSelectedNavItem(text);
+    onClick(text);
   };
-
-  const handleSyllabusClick = () => {
-    setPrevNavItem(selectedNavItem);
-    setSelectedNavItem("Syllabus");
-    onSyllabusClick();
-  };
-
-  const handleAnnouncementsClick = () => {
-    setPrevNavItem(selectedNavItem);
-    setSelectedNavItem("Announcements");
-    onAnnouncementsClick();
-  };
-
-  const handleMangeCourseClick = () => {
-    setPrevNavItem(selectedNavItem);
-    setSelectedNavItem("Manage Course");
-    onManageCourseClick();
-  };
-
   return (
     <CoursePageNavWrapper>
-      <Link to="#" onClick={handleCourseMaterialClick} className={selectedNavItem === "Course Material" ? "selected" : ""}>
+      <Link to="#" onClick={() => handleNavbarClick("Course Material")} className={selectedNavItem === "Course Material" ? "selected" : ""}>
         Course Material
       </Link>
-      <Link to="#" onClick={handleSyllabusClick} className={selectedNavItem === "Syllabus" ? "selected" : ""}>
+      <Link to="#" onClick={() => handleNavbarClick("Syllabus")} className={selectedNavItem === "Syllabus" ? "selected" : ""}>
         Syllabus
       </Link>
-      <Link to="#" onClick={handleAnnouncementsClick} className={selectedNavItem === "Announcements" ? "selected" : ""}>
+      <Link to="#" onClick={() => handleNavbarClick("Announcements")} className={selectedNavItem === "Announcements" ? "selected" : ""}>
         Announcements
       </Link>
-      <Link to="#" onClick={handleMangeCourseClick} className={selectedNavItem === "Manage Course" ? "selected" : ""}>
+      <Link to="#" onClick={() => handleNavbarClick("Manage Course")} className={selectedNavItem === "Manage Course" ? "selected" : ""}>
         Manage Course
       </Link>
     </CoursePageNavWrapper>
