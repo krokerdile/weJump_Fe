@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const CoursePageNav = ({ onCourseMaterialClick, onSyllabusClick, onAnnouncementsClick }) => {
+const CoursePageNav = ({ onCourseMaterialClick, onSyllabusClick, onAnnouncementsClick, onManageCourseClick }) => {
   const [selectedNavItem, setSelectedNavItem] = useState("Course Material");
   const [prevNavItem, setPrevNavItem] = useState(null);
 
@@ -24,6 +24,12 @@ const CoursePageNav = ({ onCourseMaterialClick, onSyllabusClick, onAnnouncements
     onAnnouncementsClick();
   };
 
+  const handleMangeCourseClick = () => {
+    setPrevNavItem(selectedNavItem);
+    setSelectedNavItem("Manage Course");
+    onManageCourseClick();
+  };
+
   return (
     <CoursePageNavWrapper>
       <Link to="#" onClick={handleCourseMaterialClick} className={selectedNavItem === "Course Material" ? "selected" : ""}>
@@ -34,6 +40,9 @@ const CoursePageNav = ({ onCourseMaterialClick, onSyllabusClick, onAnnouncements
       </Link>
       <Link to="#" onClick={handleAnnouncementsClick} className={selectedNavItem === "Announcements" ? "selected" : ""}>
         Announcements
+      </Link>
+      <Link to="#" onClick={handleMangeCourseClick} className={selectedNavItem === "Manage Course" ? "selected" : ""}>
+        Manage Course
       </Link>
     </CoursePageNavWrapper>
   );

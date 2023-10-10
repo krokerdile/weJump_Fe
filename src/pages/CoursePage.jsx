@@ -7,6 +7,7 @@ import CoursePageSyllabus from "../components/Courses/CoursePage/CoursePageSylla
 import ToDo from "../components/Courses/CoursePage/ToDo";
 import styled from "styled-components";
 import test from "/assets/image/test.png";
+import CoursePageManageCourse from "../components/Courses/CoursePage/CoursePageManageCourse";
 
 const EnrolledCourses = [
   {
@@ -45,6 +46,10 @@ const CoursePage = () => {
     setSelectedNavItem("Announcements");
   };
 
+  const handleManageCourseClick = () => {
+    setSelectedNavItem("Manage Course");
+  };
+
   return (
     <>
       <div>
@@ -59,12 +64,14 @@ const CoursePage = () => {
             onCourseMaterialClick={handleCourseMaterialClick}
             onSyllabusClick={handleSyllabusClick}
             onAnnouncementsClick={handleAnnouncementsClick}
+            onManageCourseClick={handleManageCourseClick}
           />
           <ContentWrapper>
             <DetailWrapper>
               {selectedNavItem === "Course Material" && <CoursePageCourseMetarial />}
               {selectedNavItem === "Syllabus" && <CoursePageSyllabus />}
               {selectedNavItem === "Announcements" && <CoursePageAnnouncements />}
+              {selectedNavItem === "Manage Course" && <CoursePageManageCourse />}
             </DetailWrapper>
             <ToDo />
           </ContentWrapper>
