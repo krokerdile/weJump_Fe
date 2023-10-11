@@ -16,5 +16,5 @@ const TextLine = styled.p`
   color: ${(props) => props.theme.color[props.color]};
   text-decoration: none;
   padding: 0;
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 0rem 0 0.5rem 0;
 `;
