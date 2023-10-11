@@ -1,10 +1,8 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import Text from "@components/common/Text";
 import DefaultButton from "@components/common/Button/DefaultButton";
 
-const CoursePageManageCourse = () => {
+const ManageCourse = () => {
   return (
     <ManageWrapper>
       <Text text="Join Requests" fontSize="headline1" fontWeight="headline1" color="black" />
@@ -45,7 +43,7 @@ const CoursePageManageCourse = () => {
   );
 };
 
-export default CoursePageManageCourse;
+export default ManageCourse;
 
 const ManageWrapper = styled.div`
   display: flex;

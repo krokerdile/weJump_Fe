@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import WeekList from "./weekList";
 
 const pageSize = 4; // 한 페이지당 보여질 항목 수
 
@@ -40,7 +38,7 @@ const Notice = [
 
 Notice.reverse();
 
-const CoursePageAnnouncements = () => {
+const Announcements = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   // 현재 페이지에 따라 startIndex 계산
@@ -51,7 +49,7 @@ const CoursePageAnnouncements = () => {
   const pageCount = Math.ceil(Notice.length / pageSize);
 
   return (
-    <CoursePageAnnouncementWrapper>
+    <AnnouncementWrapper>
       <table>
         <thead>
           <tr>
@@ -80,13 +78,13 @@ const CoursePageAnnouncements = () => {
           </PageNumber>
         ))}
       </Pagination>
-    </CoursePageAnnouncementWrapper>
+    </AnnouncementWrapper>
   );
 };
 
-export default CoursePageAnnouncements;
+export default Announcements;
 
-const CoursePageAnnouncementWrapper = styled.div`
+const AnnouncementWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;

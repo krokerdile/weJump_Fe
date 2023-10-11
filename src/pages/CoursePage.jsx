@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import CoursePageNav from "../components/Courses/CoursePage/CoursePageNav";
-import CoursePageCourseMetarial from "../components/Courses/CoursePage/CoursePageCourseMaterial";
-import CoursePageAnnouncements from "../components/Courses/CoursePage/CoursePageAnnouncements";
-import CoursePageSyllabus from "../components/Courses/CoursePage/CoursePageSyllabus";
+import Nav from "../components/Courses/CoursePage/Nav";
+import CourseMetarial from "../components/Courses/CoursePage/CourseMaterial";
+import Announcements from "../components/Courses/CoursePage/Announcements";
+import Syllabus from "../components/Courses/CoursePage/Syllabus";
 import ToDo from "../components/Courses/CoursePage/ToDo";
 import styled from "styled-components";
 import test from "/assets/image/test.png";
-import CoursePageManageCourse from "../components/Courses/CoursePage/CoursePageManageCourse";
+import ManageCourse from "../components/Courses/CoursePage/ManageCourse";
 import ManageAttendance from "../components/Courses/CoursePage/ManageAttendance";
 
 const EnrolledCourses = [
@@ -49,13 +49,13 @@ const CoursePage = () => {
           <div className="CourseInfo"></div>
         </CourseDetail>
         <div className="CoursePageMainWrapper">
-          <CoursePageNav onClick={handleNavbarClick} />
+          <Nav onClick={handleNavbarClick} />
           <ContentWrapper>
             <DetailWrapper>
-              {selectedNavItem === "Course Material" && <CoursePageCourseMetarial />}
-              {selectedNavItem === "Syllabus" && <CoursePageSyllabus />}
-              {selectedNavItem === "Announcements" && <CoursePageAnnouncements />}
-              {selectedNavItem === "Manage Course" && <CoursePageManageCourse />}
+              {selectedNavItem === "Course Material" && <CourseMetarial />}
+              {selectedNavItem === "Syllabus" && <Syllabus />}
+              {selectedNavItem === "Announcements" && <Announcements />}
+              {selectedNavItem === "Manage Course" && <ManageCourse />}
               {selectedNavItem === "Attendance" && <ManageAttendance />}
             </DetailWrapper>
             <ToDo />

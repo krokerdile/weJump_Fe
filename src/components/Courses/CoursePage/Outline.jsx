@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const CourseOutline = ({ outline }) => {
+const Outline = ({ outline }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleAccordion = () => {
@@ -21,7 +21,7 @@ const CourseOutline = ({ outline }) => {
   );
 };
 
-export default CourseOutline;
+export default Outline;
 
 const OutlineBox = styled.div`
   border: 2px solid #ccc;

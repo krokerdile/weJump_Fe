@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import WeekList from "./weekList";
 
 const WeekData = [
@@ -17,17 +16,17 @@ const WeekData = [
   },
 ];
 
-const CoursePageCourseMaterial = () => {
+const CourseMaterial = () => {
   return (
-    <CoursePageCoursesWrapper>
+    <CoursesWrapper>
       <WeekList weeks={WeekData} />
-    </CoursePageCoursesWrapper>
+    </CoursesWrapper>
   );
 };
 
-export default CoursePageCourseMaterial;
+export default CourseMaterial;
 
-const CoursePageCoursesWrapper = styled.div`
+const CoursesWrapper = styled.div`
   display: flex;
   width: 100%;
 `;

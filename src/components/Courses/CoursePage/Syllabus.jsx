@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import CourseOutline from "./CourseOutline";
+import Outline from "./Outline";
 import Textbook from "./Textbook";
 import Schedule from "./Schedule";
 
@@ -18,19 +18,19 @@ const SyllabusData = [
   },
 ];
 
-const CoursePageSyllabus = () => {
+const Syllabus = () => {
   return (
-    <CoursePageCoursesWrapper>
-      <CourseOutline outline={SyllabusData[0].CourseOutline} />
+    <CoursesWrapper>
+      <Outline outline={SyllabusData[0].CourseOutline} />
       <Textbook textbook={SyllabusData[0].TextbookAndOther} />
       <Schedule courseContent={SyllabusData[0].CourseContent} />
-    </CoursePageCoursesWrapper>
+    </CoursesWrapper>
   );
 };
 
-export default CoursePageSyllabus;
+export default Syllabus;
 
-const CoursePageCoursesWrapper = styled.div`
+const CoursesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
