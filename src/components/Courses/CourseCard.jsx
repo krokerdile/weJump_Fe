@@ -31,7 +31,7 @@ const CardWrapper = styled.div`
   height: 15rem;
   flex-shrink: 0;
   border: solid 1px grey;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   flex-basis: 25%;
 `;
 
@@ -46,22 +46,24 @@ const CardFooter = styled.div`
 
 const RegisteredCover = styled.div`
   width: 15rem;
-  height: 1rem;
+  height: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.color["button"]};
   position: absolute;
   z-index: 1;
-  border-radius: 0.9rem 0.9rem 0px 0px;
+  border-radius: 0.7rem 0.7rem 0px 0px;
   opacity: 0.9; //투명도 조절
+  background-color: ${(props) => props.theme.color["button"]};
+  font-size: ${(props) => props.theme.fontSize["caption"]};
+  font-weight: ${(props) => props.theme.fontWeight["category"]};
 `;
 
 const CardCover = styled.img`
   width: 15rem;
   height: 7rem;
   flex-shrink: 0;
-  border-radius: 0.9rem 0.9rem 0px 0px;
+  border-radius: 0.7rem 0.7rem 0px 0px;
   background: url(<path-to-image>), lightgray 50% / cover no-repeat;
 `;
 
