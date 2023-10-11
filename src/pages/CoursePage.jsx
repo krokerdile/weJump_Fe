@@ -8,6 +8,7 @@ import ToDo from "../components/Courses/CoursePage/ToDo";
 import styled from "styled-components";
 import test from "/assets/image/test.png";
 import CoursePageManageCourse from "../components/Courses/CoursePage/CoursePageManageCourse";
+import ManageAttendance from "../components/Courses/CoursePage/ManageAttendance";
 
 const EnrolledCourses = [
   {
@@ -34,22 +35,6 @@ const CoursePage = () => {
 
   const course = EnrolledCourses.find((course) => course.courseID === courseID);
 
-  const handleCourseMaterialClick = () => {
-    setSelectedNavItem("Course Material");
-  };
-
-  const handleSyllabusClick = () => {
-    setSelectedNavItem("Syllabus");
-  };
-
-  const handleAnnouncementsClick = () => {
-    setSelectedNavItem("Announcements");
-  };
-
-  const handleManageCourseClick = () => {
-    setSelectedNavItem("Manage Course");
-  };
-
   const handleNavbarClick = (text) => {
     setSelectedNavItem(text);
   };
@@ -64,19 +49,14 @@ const CoursePage = () => {
           <div className="CourseInfo"></div>
         </CourseDetail>
         <div className="CoursePageMainWrapper">
-          <CoursePageNav
-            onClick={handleNavbarClick}
-            onCourseMaterialClick={handleCourseMaterialClick}
-            onSyllabusClick={handleSyllabusClick}
-            onAnnouncementsClick={handleAnnouncementsClick}
-            onManageCourseClick={handleManageCourseClick}
-          />
+          <CoursePageNav onClick={handleNavbarClick} />
           <ContentWrapper>
             <DetailWrapper>
               {selectedNavItem === "Course Material" && <CoursePageCourseMetarial />}
               {selectedNavItem === "Syllabus" && <CoursePageSyllabus />}
               {selectedNavItem === "Announcements" && <CoursePageAnnouncements />}
               {selectedNavItem === "Manage Course" && <CoursePageManageCourse />}
+              {selectedNavItem === "Attendance" && <ManageAttendance />}
             </DetailWrapper>
             <ToDo />
           </ContentWrapper>
