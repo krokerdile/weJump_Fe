@@ -14,6 +14,7 @@ const CourseList = ({ courses }) => {
           mentorName={course.mentorName}
           studentCount={course.studentCount}
           studentMaxNum={course.studentMaxNum}
+          registered={course.registered}
         />
       ))}
     </CoursesWrapper>

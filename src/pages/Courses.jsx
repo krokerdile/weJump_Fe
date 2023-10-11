@@ -12,7 +12,7 @@ const EnrolledCourses = [
     mentorName: "professor1",
     studentCount: "30",
     studentMaxNum: "50",
-    Registered: "1",
+    registered: "1",
   },
   {
     imgSrc: test,
@@ -21,7 +21,7 @@ const EnrolledCourses = [
     mentorName: "professor2",
     studentCount: "40",
     studentMaxNum: "50",
-    Registered: "1",
+    registered: "1",
   },
 ];
 
@@ -33,7 +33,7 @@ const OngoingCourses = [
     mentorName: "professor1",
     studentCount: "30",
     studentMaxNum: "50",
-    Registered: "0",
+    registered: "0",
   },
   {
     imgSrc: test,
@@ -42,7 +42,7 @@ const OngoingCourses = [
     mentorName: "professor2",
     studentCount: "40",
     studentMaxNum: "50",
-    Registered: "1",
+    registered: "1",
   },
   {
     imgSrc: test,
@@ -51,7 +51,7 @@ const OngoingCourses = [
     mentorName: "professor3",
     studentCount: "50",
     studentMaxNum: "50",
-    Registered: "1",
+    registered: "1",
   },
 ];
 
@@ -63,7 +63,7 @@ const PastEnrollment = [
     mentorName: "professor1",
     studentCount: "45",
     studentMaxNum: "50",
-    Registered: "0",
+    registered: "0",
   },
 ];
 
