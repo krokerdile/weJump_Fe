@@ -28,7 +28,7 @@ const ToDoWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     border: 2px solid #ccc;
-    width: fit-content;
+    width: 20rem;
     border-radius: 5px;
 
     .todo-heading {

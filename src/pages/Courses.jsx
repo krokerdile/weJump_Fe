@@ -1,6 +1,5 @@
 import React from "react";
 import CourseList from "../components/Courses/CourseList";
-import CoursePage from "./CoursePage";
 import styled from "styled-components";
 import test from "/assets/image/test.png";
 

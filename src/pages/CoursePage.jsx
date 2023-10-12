@@ -4,11 +4,12 @@ import Nav from "../components/Courses/CoursePage/Nav";
 import CourseMetarial from "../components/Courses/CoursePage/CourseMaterial";
 import Announcements from "../components/Courses/CoursePage/Announcements";
 import Syllabus from "../components/Courses/CoursePage/Syllabus";
-import ToDo from "../components/Courses/CoursePage/ToDo";
 import styled from "styled-components";
 import test from "/assets/image/test.png";
 import ManageCourse from "../components/Courses/CoursePage/ManageCourse";
 import ManageAttendance from "../components/Courses/CoursePage/ManageAttendance";
+import Join from "../components/Courses/CoursePage/Join";
+import ToDo from "../components/Courses/CoursePage/ToDo";
 
 const EnrolledCourses = [
   {
@@ -32,6 +33,7 @@ const EnrolledCourses = [
 const CoursePage = () => {
   const { courseID } = useParams();
   const [selectedNavItem, setSelectedNavItem] = useState("Course Material");
+  const [loginCheck, setLoginCheck] = useState(false);
 
   const course = EnrolledCourses.find((course) => course.courseID === courseID);
 
@@ -63,7 +65,7 @@ const CoursePage = () => {
               {selectedNavItem === "Manage Course" && <ManageCourse />}
               {selectedNavItem === "Attendance" && <ManageAttendance />}
             </DetailWrapper>
-            <ToDo/>
+            {loginCheck ? <ToDo /> : <Join />}
           </ContentWrapper>
         </div>
       </div>

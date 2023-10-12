@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import Description from "./Description";
 import RequiredMaterials from "./RequiredMaterials";
 import CourseOutline from "./CourseOutline";
