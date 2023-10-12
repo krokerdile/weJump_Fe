@@ -33,6 +33,7 @@ const CardWrapper = styled.div`
   border: solid 1px grey;
   border-radius: 0.8rem;
   flex-basis: 25%;
+  overflow: hidden;
 `;
 
 const CardFooter = styled.div`
