@@ -3,6 +3,7 @@ import styled from "styled-components";
 import assignment from "../icon/assignment.png";
 import video from "../icon/video.png";
 import read from "../icon/read.png";
+import rectangle from "../icon/rectangle.png";
 
 const tableData = [
   {
@@ -26,7 +27,7 @@ const tableData = [
 ];
 
 const Table = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleAccordion = () => {
     setIsExpanded((prevState) => !prevState);
@@ -35,8 +36,10 @@ const Table = () => {
   return (
     <TableWrapper>
       <ScheduleHeader onClick={toggleAccordion}>
-        <span>Textbook & Other References</span>
-        <ExpandIcon isExpanded={isExpanded}>+</ExpandIcon>
+        <span>Course Outline</span>
+        <ExpandIcon isExpanded={isExpanded}>
+          <img src={rectangle} alt="rectangle" width="24" height="14"/>
+        </ExpandIcon>
       </ScheduleHeader>
       {isExpanded && (
         <table>
@@ -107,6 +110,6 @@ const ScheduleHeader = styled.div`
 
 const ExpandIcon = styled.span`
   font-size: 20px;
-  transform: ${(props) => (props.isExpanded ? "rotate(45deg)" : "rotate(0deg)")};
+  transform: ${(props) => (props.isExpanded ? "rotate(0deg) scaleY(-1)" : "rotate(0deg)")};
   transition: transform 0.3s ease-in-out;
 `;

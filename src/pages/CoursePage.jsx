@@ -58,7 +58,7 @@ const CoursePage = () => {
               {selectedNavItem === "Manage Course" && <ManageCourse />}
               {selectedNavItem === "Attendance" && <ManageAttendance />}
             </DetailWrapper>
-            <ToDo />
+            <ToDo/>
           </ContentWrapper>
         </div>
       </div>

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-import Outline from "./Outline";
-import Textbook from "./Textbook";
-import Schedule from "./Schedule";
+import Description from "./Description";
+import RequiredMaterials from "./RequiredMaterials";
+import CourseOutline from "./CourseOutline";
 
 const SyllabusData = [
   {
-    CourseOutline: "This Course has ...",
-    TextbookAndOther: "Please write here",
-    CourseContent: [
+    Description: "This course introduces middle school students to the exciting world of programming using the Python language. Students will learn the fundamentals of programming concepts, create interactive programs, and explore various applications of Python.",
+    RequiredMaterials: "A computer or laptop with internet access No special software is required; all tools will be provided online",
+    CourseOutline: [
       {
         LearningContent: "What is Python?",
         Assignments: "textbook",
@@ -21,9 +21,9 @@ const SyllabusData = [
 const Syllabus = () => {
   return (
     <CoursesWrapper>
-      <Outline outline={SyllabusData[0].CourseOutline} />
-      <Textbook textbook={SyllabusData[0].TextbookAndOther} />
-      <Schedule courseContent={SyllabusData[0].CourseContent} />
+      <Description outline={SyllabusData[0].Description} />
+      <RequiredMaterials textbook={SyllabusData[0].RequiredMaterials} />
+      <CourseOutline courseContent={SyllabusData[0].CourseOutline} />
     </CoursesWrapper>
   );
 };
