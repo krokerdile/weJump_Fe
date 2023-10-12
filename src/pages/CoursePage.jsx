@@ -43,10 +43,15 @@ const CoursePage = () => {
     <>
       <div>
         <CourseDetail>
-          <Banner src={course.imgSrc} />
-          <h3 className="CourseName">{course.courseName}</h3>
-          <div className="CourseMentor">{course.mentorName}</div>
-          <div className="CourseInfo"></div>
+          <Banner src={course.imgSrc}/>
+          <CourseAbout>
+            <CourseHeader>
+              <CourseName>{course.courseName}</CourseName>
+              <CourseMentor>{course.mentorName}</CourseMentor>
+            </CourseHeader>
+            <CourseInfo>Course information goes here</CourseInfo>
+            <CourseInfo>Fridays 10:00 AM - 01:00 PM</CourseInfo>
+          </CourseAbout>
         </CourseDetail>
         <div className="CoursePageMainWrapper">
           <Nav onClick={handleNavbarClick} />
@@ -81,13 +86,49 @@ const DetailWrapper = styled.div`
   align-items: center;
 `;
 
-const CourseDetail = styled.div`
+const CourseName = styled.div`
+  margin-right: 1rem;
+  color: ${(props) => props.theme.color["white"]};
+  font-size: ${(props) => props.theme.fontSize["headline1"]};
+  font-weight: ${(props) => props.theme.fontWeight["headline1"]};
+`;
+
+const CourseMentor = styled.div`
+  margin-left: 1rem;
+  color: ${(props) => props.theme.color["white"]};
+  font-size: ${(props) => props.theme.fontSize["category"]};
+  font-weight: ${(props) => props.theme.fontWeight["category"]};
+`;
+
+const CourseInfo = styled.div`
+  color: ${(props) => props.theme.color["white"]};
+  font-size: ${(props) => props.theme.fontSize["bodycopy"]};
+  font-weight: ${(props) => props.theme.fontWeight["bodycopy"]};
+`;
+
+const CourseHeader = styled.div`
   display: flex;
-  flex-direction: column;
-  text-align: left;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const CourseDetail = styled.div`
+  position: relative;
 `;
 
 const Banner = styled.img`
   width: 100%;
-  height: 20.5rem;
+  height: auto;
+`;
+
+const CourseAbout = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom : 2rem;
 `;
