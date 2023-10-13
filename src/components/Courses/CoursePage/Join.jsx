@@ -6,7 +6,7 @@ const Join = () => {
         <JoinWrapper>
             <p className="request">You must be registered for this course in order to see the course materials and announcements.</p>
             <ButtonWrapper>
-                <DefaultButton text="Request to Join" background="button" fontWeight="category" color="black"/>
+                <DefaultButton text="Request to Join" background="pressed" fontWeight="category" color="black"/>
             </ButtonWrapper>
         </JoinWrapper>
     );

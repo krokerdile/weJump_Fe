@@ -58,7 +58,7 @@ export default Nav;
 const NavWrapper = styled.div`
   display: flex;
   gap: 1rem;
-  margin-top:1.5rem;
+  margin-top:1rem;
   font-size: ${(props) => props.theme.fontSize["category"]};
   font-weight: ${(props) => props.theme.fontWeight["category"]};
 

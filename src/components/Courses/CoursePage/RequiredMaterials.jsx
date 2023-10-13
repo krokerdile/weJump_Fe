@@ -51,4 +51,7 @@ const RequiredMaterialsDetails = styled.div`
   max-height: ${(props) => (props.isExpanded ? "none" : "0")};
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
+  text-align: left;
+  margin-left:1rem;
+  margin-bottom: 1rem;
 `;

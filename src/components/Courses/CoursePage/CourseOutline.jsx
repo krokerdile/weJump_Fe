@@ -34,21 +34,24 @@ const Table = () => {
   };
 
   return (
-    <TableWrapper>
-      <ScheduleHeader onClick={toggleAccordion}>
-        <span>Course Outline</span>
-        <ExpandIcon isExpanded={isExpanded}>
-          <img src={rectangle} alt="rectangle" width="24" height="14"/>
-        </ExpandIcon>
-      </ScheduleHeader>
-      {isExpanded && (
+    <div>
+      <OutlineWrapper>
+        <ScheduleHeader onClick={toggleAccordion}>
+          <span>Course Outline</span>
+          <ExpandIcon isExpanded={isExpanded}>
+            <img src={rectangle} alt="rectangle" width="24" height="14"/>
+          </ExpandIcon>
+        </ScheduleHeader>
+      </OutlineWrapper>
+      <TableWrapper>
+        {isExpanded && (
         <table>
           <thead>
-            <tr>
+            <TableHead>
               <th>Week</th>
               <th>Title</th>
               <th>Course Material</th>
-            </tr>
+            </TableHead>
           </thead>
           <tbody>
             {tableData.map((row, index) => (
@@ -70,18 +73,25 @@ const Table = () => {
             ))}
           </tbody>
         </table>
-      )}
-    </TableWrapper>
+        )}
+      </TableWrapper>
+    </div>
+    
+
+    
   );
 };
 
 export default Table;
 
+const OutlineWrapper = styled.div`
+  border: 2px solid #ccc;
+  margin-bottom: 20px;
+  width: 100%;
+  align-items: left;
+`;
+
 const TableWrapper = styled.div`
-    border: 2px solid #ccc;
-    margin-bottom: 20px;
-    width: 100%;
-    align-items: left;
     
   table {
     width: 100%;
@@ -98,6 +108,9 @@ const TableWrapper = styled.div`
   th {
     background-color: #f2f2f2;
   }
+`;
+const TableHead = styled.tr`
+  background-color: ${(props) => props.theme.color["highlight"]};
 `;
 
 const ScheduleHeader = styled.div`
