@@ -32,8 +32,9 @@ const EnrolledCourses = [
 
 const CoursePage = () => {
   const { courseID } = useParams();
-  const [selectedNavItem, setSelectedNavItem] = useState("Course Material");
+  const [selectedNavItem, setSelectedNavItem] = useState("Syllabus");
   const [loginCheck, setLoginCheck] = useState(false);
+  const [registeredCheck, setRegisteredCheck] = useState(false);
 
   const course = EnrolledCourses.find((course) => course.courseID === courseID);
 
@@ -56,7 +57,7 @@ const CoursePage = () => {
           </CourseAbout>
         </CourseDetail>
         <div className="CoursePageMainWrapper">
-          <Nav onClick={handleNavbarClick} />
+          <Nav onClick={handleNavbarClick} registeredCheck={registeredCheck}/>
           <ContentWrapper>
             <DetailWrapper>
               {selectedNavItem === "Course Material" && <CourseMetarial />}
@@ -65,7 +66,7 @@ const CoursePage = () => {
               {selectedNavItem === "Manage Course" && <ManageCourse />}
               {selectedNavItem === "Attendance" && <ManageAttendance />}
             </DetailWrapper>
-            {loginCheck ? <ToDo /> : <Join />}
+            {registeredCheck ? <ToDo /> : <Join />}
           </ContentWrapper>
         </div>
       </div>
