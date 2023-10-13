@@ -10,7 +10,11 @@ export function useUpdateCourse() {
 }
 
 export function useReadAllCourses() {
-  return useQuery("courses", () => coursesApi.readAllCourse());
+  const { data: res } = useQuery(["courseList"], coursesApi.readAllCourse);
+  console.log(res);
+  if (!res) return [];
+
+  return res.data;
 }
 
 export function useDeleteCourse() {

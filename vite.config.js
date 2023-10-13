@@ -16,4 +16,14 @@ export default defineConfig({
       { find: "@api", replacement: "/src/api" },
     ],
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://ec2-3-39-188-25.ap-northeast-2.compute.amazonaws.com:8080",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace("/api", ""),
+      },
+    },
+  },
 });

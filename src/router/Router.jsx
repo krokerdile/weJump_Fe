@@ -7,6 +7,7 @@ import Event from "@pages/Event";
 import Account from "@pages/Account";
 import ClubDetail from "@pages/clubs/ClubDetail";
 import CoursePage from "@pages/CoursePage";
+import TestPage from "@pages/TestPage";
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/weJump_Fe/Event" element={<Event />} />
         <Route path="/weJump_Fe/Account" element={<Account />} />
         <Route path="/weJump_Fe/Courses/:courseID" element={<CoursePage />} />
+        <Route path="/weJump_Fe/Test" element={<TestPage />} />
       </Route>
     </Routes>
   );

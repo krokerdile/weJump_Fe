@@ -11,6 +11,12 @@ export function useReadAllSyllabus(courseId) {
   return useQuery(queryKey, () => syllabusApi.readAllSyllabus({ courseId }), { enabled: !!courseId });
 }
 
+export function useGetAllSyllabus() {
+  const { data, isSuccess } = useQuery(["SyllabusList"], syllabusApi.getAll);
+
+  return { data: data, isSuccess };
+}
+
 export function useUpdateSyllabus() {
   return useMutation(syllabusApi.updateSyllabus);
 }

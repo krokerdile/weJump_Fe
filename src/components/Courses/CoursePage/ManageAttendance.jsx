@@ -1,5 +1,6 @@
 import AttendanceWeek from "./AttendanceWeek";
 import styled from "styled-components";
+import Text from "@components/common/Text";
 
 const ManageAttendance = () => {
   const Table = () => {
@@ -26,10 +27,10 @@ const ManageAttendance = () => {
     </table>;
   };
   return (
-    <>
+    <Wrapper>
       <div></div>
       <AttendanceWeek weekNum={1} Content={Table} />
-    </>
+    </Wrapper>
   );
 };
 
@@ -48,4 +49,9 @@ const Icon = styled.img`
   height: 2rem;
   background-color: black;
   border-radius: 1rem;
+`;
+
+const Wrapper = styled.div`
+  margin-right: 1rem;
+  width: 100%;
 `;

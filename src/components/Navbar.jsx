@@ -16,7 +16,7 @@ const Navbar = () => {
   };
   return (
     <NavbarWrapper>
-      <LogoBox onClick={() => handleNavigete("/weJump_Fe/")}>
+      <LogoBox onClick={() => handleNavigete("/weJump_Fe/Courses")}>
         <Logo src="/assets/image/Logo.png" />
         <Text text="WeJump" fontSize="headline1" fontWeight="headline1" color="button" />
       </LogoBox>

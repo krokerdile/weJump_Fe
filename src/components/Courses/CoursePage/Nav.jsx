@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Nav = ({ onClick, registeredCheck}) => {
+const Nav = ({ onClick, registeredCheck }) => {
   const [selectedNavItem, setSelectedNavItem] = useState("Syllabus");
   const [prevNavItem, setPrevNavItem] = useState(null);
-  const [adminCheck, setAdminCheck] = useState(false);
+  const [adminCheck, setAdminCheck] = useState(true);
 
   const handleNavbarClick = (text) => {
     setPrevNavItem(selectedNavItem);
@@ -23,28 +23,16 @@ const Nav = ({ onClick, registeredCheck}) => {
         Syllabus
       </Link>
       {registeredCheck && (
-        <Link
-          to="#"
-          onClick={() => handleNavbarClick("Announcements")}
-          className={selectedNavItem === "Announcements" ? "selected" : ""}
-          >
+        <Link to="#" onClick={() => handleNavbarClick("Announcements")} className={selectedNavItem === "Announcements" ? "selected" : ""}>
           Announcements
         </Link>
       )}
       {adminCheck && (
         <>
-          <Link
-            to="#"
-            onClick={() => handleNavbarClick("Manage Course")}
-            className={selectedNavItem === "Manage Course" ? "selected" : ""}
-          >
+          <Link to="#" onClick={() => handleNavbarClick("Manage Course")} className={selectedNavItem === "Manage Course" ? "selected" : ""}>
             Manage Course
           </Link>
-          <Link
-            to="#"
-            onClick={() => handleNavbarClick("Attendance")}
-            className={selectedNavItem === "Attendance" ? "selected" : ""}
-          >
+          <Link to="#" onClick={() => handleNavbarClick("Attendance")} className={selectedNavItem === "Attendance" ? "selected" : ""}>
             Attendance
           </Link>
         </>
@@ -58,7 +46,7 @@ export default Nav;
 const NavWrapper = styled.div`
   display: flex;
   gap: 1rem;
-  margin-top:1rem;
+  margin-top: 1.5rem;
   font-size: ${(props) => props.theme.fontSize["category"]};
   font-weight: ${(props) => props.theme.fontWeight["category"]};
 

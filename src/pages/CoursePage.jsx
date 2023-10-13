@@ -33,8 +33,8 @@ const EnrolledCourses = [
 const CoursePage = () => {
   const { courseID } = useParams();
   const [selectedNavItem, setSelectedNavItem] = useState("Syllabus");
-  const [loginCheck, setLoginCheck] = useState(false);
-  const [registeredCheck, setRegisteredCheck] = useState(false);
+  const [loginCheck, setLoginCheck] = useState(true);
+  const [registeredCheck, setRegisteredCheck] = useState(true);
 
   const course = EnrolledCourses.find((course) => course.courseID === courseID);
 
@@ -46,7 +46,7 @@ const CoursePage = () => {
     <>
       <div>
         <CourseDetail>
-          <Banner src={course.imgSrc}/>
+          <Banner src={course.imgSrc} />
           <CourseAbout>
             <CourseHeader>
               <CourseName>{course.courseName}</CourseName>
@@ -57,7 +57,7 @@ const CoursePage = () => {
           </CourseAbout>
         </CourseDetail>
         <div className="CoursePageMainWrapper">
-          <Nav onClick={handleNavbarClick} registeredCheck={registeredCheck}/>
+          <Nav onClick={handleNavbarClick} registeredCheck={registeredCheck} />
           <ContentWrapper>
             <DetailWrapper>
               {selectedNavItem === "Course Material" && <CourseMetarial />}
@@ -133,5 +133,5 @@ const CourseAbout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom : 2rem;
+  margin-bottom: 2rem;
 `;

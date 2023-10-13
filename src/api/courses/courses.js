@@ -1,4 +1,5 @@
 import clientApi from "../axios";
+import axios from "axios";
 
 const coursesApi = {
   // 코스 생성
@@ -27,15 +28,15 @@ const coursesApi = {
   },
   // 모든 코스 정보 확인
   readAllCourse: async () => {
-    return await clientApi.get(`/courses`);
+    return await axios.get(`/api/courses`);
   },
   // 코스 삭제
   deleteCourse: async ({ courseId }) => {
     return await clientApi.post(`/courses/${courseId}`);
   },
   // 해당하는 코스 정보 확인
-  readSpecificCourse: async ({ courseId }) => {
-    return await clientApi.post(`/courses/${courseId}`);
+  readSpecificCourse: async () => {
+    return await clientApi.get(`/courses/2`);
   },
   // 등록되어져 있는 코스 확인
   checkMyCourses: async () => {
