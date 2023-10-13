@@ -5,19 +5,26 @@ import styled from "styled-components";
 import Text from "../Text";
 import DefaultButton from "../Button/DefaultButton";
 import GoogleLoginButton from "../Button/GoogleLoginButton";
+import { useNavigate } from "react-router-dom";
+
+const baseURL = import.meta.env.VITE_APP_BASE_URL;
 
 const LoginModal = () => {
   const { setShowModal } = useModalStore();
   const closeModal = useCallback(() => {
     setShowModal(false);
   }, []);
+  const navigate = useNavigate();
+  const handleGoogleLogin = () => {
+    navigate(`${baseURL}/oauth2/authorization/google`);
+  };
   return (
     <BackgroundModal>
       <LoginModalWrapper>
         <LoginModalHeader>
           <Text text="Sign In" fontSize="category" fontWeight="category" color="black" />
         </LoginModalHeader>
-        <GoogleLoginButton />
+        <GoogleLoginButton onClick={() => handleGoogleLogin()} />
         <DefaultButton text="Sign In" background="button" fontWeight="category" color="black" />
       </LoginModalWrapper>
     </BackgroundModal>
