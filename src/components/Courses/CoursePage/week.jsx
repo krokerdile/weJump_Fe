@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Week = ({ weekNum, video, assignment, discussion }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleAccordion = () => {
     setIsExpanded((prevState) => !prevState);

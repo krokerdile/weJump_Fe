@@ -122,6 +122,7 @@ const CourseDetail = styled.div`
 const Banner = styled.img`
   width: 100%;
   height: auto;
+  object-fit: cover;
 `;
 
 const CourseAbout = styled.div`

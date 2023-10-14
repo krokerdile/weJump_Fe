@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import rightButton from "../icon/rightButton.png";
+import leftButton from "../icon/leftButton.png";
 
 const pageSize = 4; // 한 페이지당 보여질 항목 수
 
@@ -39,25 +41,41 @@ const Notice = [
 Notice.reverse();
 
 const Announcements = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [startIndex, setStartIndex] = useState(0);
 
-  // 현재 페이지에 따라 startIndex 계산
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const currentNotice = Notice.slice(startIndex, endIndex);
+  const currentNotice = Notice.slice(startIndex, startIndex + pageSize);
 
-  const pageCount = Math.ceil(Notice.length / pageSize);
+  const goBack = () => {
+    if (startIndex >= pageSize) {
+      setStartIndex(startIndex - pageSize);
+    }
+  };
+
+  const goForward = () => {
+    if (startIndex + pageSize < Notice.length) {
+      setStartIndex(startIndex + pageSize);
+    }
+  };
 
   return (
     <AnnouncementWrapper>
+      <Pagination>
+        <Button onClick={goBack}>
+          <img src={leftButton} alt="Previous" />
+        </Button>
+        <CurrentPage>{startIndex / pageSize + 1}</CurrentPage>
+        <Button onClick={goForward}>
+          <img src={rightButton} alt="Next" />
+        </Button>
+      </Pagination>
       <table>
         <thead>
-          <tr>
+          <TableHead>
             <th>No.</th>
             <th>Title</th>
             <th>Date</th>
             <th>Hits</th>
-          </tr>
+          </TableHead>
         </thead>
         <tbody>
           {currentNotice.map((item, index) => (
@@ -70,14 +88,6 @@ const Announcements = () => {
           ))}
         </tbody>
       </table>
-
-      <Pagination>
-        {Array.from({ length: pageCount }, (_, index) => (
-          <PageNumber key={index + 1} onClick={() => setCurrentPage(index + 1)} active={currentPage === index + 1}>
-            {index + 1}
-          </PageNumber>
-        ))}
-      </Pagination>
     </AnnouncementWrapper>
   );
 };
@@ -85,11 +95,17 @@ const Announcements = () => {
 export default Announcements;
 
 const AnnouncementWrapper = styled.div`
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 100%;
   margin-right: 1rem;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -109,12 +125,23 @@ const AnnouncementWrapper = styled.div`
 
 const Pagination = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  align-items: center;
 `;
 
-const PageNumber = styled.span`
+const Button = styled.button`
+  background: none;
+  border: none;
   cursor: pointer;
-  color: ${(props) => (props.active ? "blue" : "black")};
-  font-weight: ${(props) => (props.active ? "bold" : "normal")};
+  display: inline-block;
+`;
+
+const CurrentPage = styled.span`
+  color: ${(props) => props.theme.color["bodycopy"]};
+  font-weight: bold;
+  margin: 0 8px;
+  margin-bottom : 4px;
+`;
+
+const TableHead = styled.tr`
+  background-color: #f2f2f2;
 `;
