@@ -75,8 +75,6 @@ const weekMaterial = ({ category, weekData }) => {
       {isExpanded && (
         <MaterialDetail isExpanded={isExpanded}>
           {category === "Assignment" ? `${assignmentResponseDTO.title}\n${assignmentResponseDTO.end}` : `Video: ${video}`}
-          <br />
-          {assignmentResponseDTO.description}
         </MaterialDetail>
       )}
     </MaterialWrapper>

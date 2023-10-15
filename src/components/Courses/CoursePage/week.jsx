@@ -74,7 +74,6 @@ export default Week;
 
 const WeekBox = styled.div`
   border: 2px solid #ccc;
-  margin-bottom: 20px;
   width: 100%;
   align-items: left;
 `;
