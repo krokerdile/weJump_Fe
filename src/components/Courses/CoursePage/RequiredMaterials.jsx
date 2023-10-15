@@ -1,24 +1,55 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import rectangle from "../icon/rectangle.png";
+import EditButton from "../../common/Button/EditButton";
+import DoneButton from "../../common/Button/DoneButton";
 
 const RequiredMaterials = ({ textbook }) => {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTextbook, setEditedTextbook] = useState(textbook);
 
   const toggleAccordion = () => {
-    setIsExpanded((prevState) => !prevState);
+    if (!isEditing) {
+      setIsExpanded((prevState) => !prevState);
+    }
+  };
+
+  const toggleEdit = () => {
+    setIsEditing((prevIsEditing) => !prevIsEditing);
+  };
+
+  const handleTextbookChange = (e) => {
+    setEditedTextbook(e.target.value);
+  };
+
+  const handleDone = () => {
+    toggleEdit();
   };
 
   return (
     <RequiredMaterialsBox>
-      <RequiredMaterialsHeader onClick={toggleAccordion}>
-        <span>Required Materials</span>
-        <ExpandIcon isExpanded={isExpanded}>
-          <img src={rectangle} alt="rectangle" width="24" height="14"/>
+      <RequiredMaterialsHeader>
+        <span onClick={toggleAccordion}>Required Materials</span>
+        {isEditing ? (
+          <DoneButton onClick={handleDone} />
+        ) : (
+          <EditButton onClick={toggleEdit} />
+        )}
+        <ExpandIcon isExpanded={isExpanded} onClick={toggleAccordion}>
+          <img src={rectangle} alt="rectangle" width="24" height="14" />
         </ExpandIcon>
       </RequiredMaterialsHeader>
       <RequiredMaterialsDetails isExpanded={isExpanded}>
-        {textbook && <div>{textbook}</div>}
+        {isEditing ? (
+          <EditBox
+            type="text"
+            value={editedTextbook}
+            onChange={handleTextbookChange}
+          />
+        ) : (
+          <div>{editedTextbook}</div>
+        )}
       </RequiredMaterialsDetails>
     </RequiredMaterialsBox>
   );
@@ -55,3 +86,9 @@ const RequiredMaterialsDetails = styled.div`
   margin-left:1rem;
   margin-bottom: 1rem;
 `;
+
+const EditBox = styled.input`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+`

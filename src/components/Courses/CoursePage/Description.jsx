@@ -1,24 +1,55 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import rectangle from "../icon/rectangle.png";
+import EditButton from "../../common/Button/EditButton";
+import DoneButton from "../../common/Button/DoneButton";
 
 const Description = ({ outline }) => {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedOutline, setEditedOutline] = useState(outline);
 
   const toggleAccordion = () => {
-    setIsExpanded((prevState) => !prevState);
+    if (!isEditing) {
+      setIsExpanded((prevState) => !prevState);
+    }
+  };
+
+  const toggleEdit = () => {
+    setIsEditing((prevIsEditing) => !prevIsEditing);
+  };
+
+  const handleOutlineChange = (e) => {
+    setEditedOutline(e.target.value);
+  };
+
+  const handleDone = () => {
+    toggleEdit();
   };
 
   return (
     <DescriptionBox>
-      <DescriptionHeader onClick={toggleAccordion}>
-        <span>Description</span>
-        <ExpandIcon  isExpanded={isExpanded}>
-          <img src={rectangle} alt="rectangle" width="24" height="14"/>
+      <DescriptionHeader>
+        <span onClick={toggleAccordion}>Description</span>
+        {isEditing ? (
+          <DoneButton onClick={handleDone} />
+        ) : (
+          <EditButton onClick={toggleEdit} />
+        )}
+        <ExpandIcon isExpanded={isExpanded} onClick={toggleAccordion}>
+          <img src={rectangle} alt="rectangle" width="24" height="14" />
         </ExpandIcon>
       </DescriptionHeader>
       <DescriptionDetails isExpanded={isExpanded}>
-        {outline && <div>{outline}</div>}
+        {isEditing ? (
+          <EditBox
+            type="text"
+            value={editedOutline}
+            onChange={handleOutlineChange}
+          />
+        ) : (
+          <div>{editedOutline}</div>
+        )}
       </DescriptionDetails>
     </DescriptionBox>
   );
@@ -56,3 +87,10 @@ const DescriptionDetails = styled.div`
   margin-left:1rem;
   margin-bottom: 1rem;
 `;
+
+
+const EditBox = styled.input`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+`
