@@ -76,9 +76,6 @@ const Table = () => {
         )}
       </TableWrapper>
     </div>
-    
-
-    
   );
 };
 

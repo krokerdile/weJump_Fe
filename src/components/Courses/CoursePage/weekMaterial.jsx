@@ -4,39 +4,79 @@ import rectangle from "../icon/rectangle.png";
 import circle from "../icon/circle.png";
 import greenCircle from "../icon/greenCircle.png";
 
-const weekMaterial = ({ category, deadline, detail }) => {
+const weekData = [
+  {
+    "lesonId": 1,
+    "week": 1,
+    "start": "2023-09-25",
+    "video": "helloworld",
+    "assignmentResponseDTO": {
+        "assignmentId": 1,
+        "title": "learning print",
+        "description": "submit until 09-26",
+        "end": "2023-09-26"
+        }
+    },
+    {
+        "lessonId": 2,
+        "week": 2,
+        "start": "2023-09-25",
+        "video": "helloworld",
+        "assignmentResponseDTO": null
+    }
+];
+
+const weekMaterial = ({ category, weekData }) => {
+  if (!weekData) {
+    return null;
+  }
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // MaterialDeadline은 category가 "assignment" 일 때만 렌더링
+  const { lessonId, week, start, video, assignmentResponseDTO } = weekData;
+
   const renderMaterialDeadline = () => {
-    if (category === "assignment") {
-      return <MaterialDeadline>{deadline}</MaterialDeadline>;
+    if (category === "Assignment" && assignmentResponseDTO) {
+      const deadlineDate = assignmentResponseDTO.end.replace("Submit by: ", "");
+      const parsedDeadline = new Date(deadlineDate);
+      const month = String(parsedDeadline.getMonth() + 1).padStart(2, "0");
+      const day = String(parsedDeadline.getDate()).padStart(2, "0");
+      const formattedDeadline = `${month}/${day}`;
+
+      return <MaterialDeadline>{`${formattedDeadline}`}</MaterialDeadline>;
     }
     return null;
   };
 
-  // isSubmitted는 한 번이라도 isExpanded가 true가 된 적이 있으면 true로 유지
   const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+
+    // isSubmitted를 한 번이라도 isExpanded가 true가 된 적이 있으면 true로 유지
     if (!isExpanded) {
-      setIsExpanded(true);
       setIsSubmitted(true);
-    } else {
-      setIsExpanded(false);
     }
   };
 
   return (
     <MaterialWrapper>
-      <MaterialTitle>{category}</MaterialTitle>
-      {renderMaterialDeadline()}
-      <MaterialCheck>{isSubmitted ? {greenCircle} : {circle}}</MaterialCheck>
-      <ExpandIcon isExpanded={isExpanded} onClick={toggleExpand}>
-        <img src={rectangle} alt="rectangle" width="24" height="14" />
-      </ExpandIcon>
+      <TitleWrapper>
+        <MaterialTitle>{category}</MaterialTitle>
+        <Wrapper>
+          {renderMaterialDeadline()}
+          <MaterialCheck>
+            {isSubmitted ? <img src={greenCircle} alt="Green Circle" /> : <img src={circle} alt="Circle" />}
+          </MaterialCheck>
+          <ExpandIcon isExpanded={isExpanded} onClick={toggleExpand}>
+            <img src={rectangle} alt="rectangle" width="24" height="14" />
+          </ExpandIcon>
+        </Wrapper>
+      </TitleWrapper>
       {isExpanded && (
         <MaterialDetail isExpanded={isExpanded}>
-          {detail}
+          {category === "Assignment" ? `${assignmentResponseDTO.title}\n${assignmentResponseDTO.end}` : `Video: ${video}`}
+          <br />
+          {assignmentResponseDTO.description}
         </MaterialDetail>
       )}
     </MaterialWrapper>
@@ -45,20 +85,41 @@ const weekMaterial = ({ category, deadline, detail }) => {
 
 export default weekMaterial;
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: left;
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+`;
+
 const MaterialWrapper = styled.div`
-  /* Add your styling for MaterialWrapper here */
+  width: 100%;
 `;
 
 const MaterialTitle = styled.div`
-  /* Add your styling for MaterialTitle here */
+  display: flex;
+  padding: 0.51rem;
+  font-weight: bold;
 `;
 
 const MaterialDeadline = styled.div`
-  /* Add your styling for MaterialDeadline here */
+  font-weight: bold;
+  margin-right: 0.5rem;
 `;
 
 const MaterialCheck = styled.div`
-  /* Add your styling for MaterialCheck here */
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 1rem;
 `;
 
 const ExpandIcon = styled.span`
@@ -68,5 +129,10 @@ const ExpandIcon = styled.span`
 `;
 
 const MaterialDetail = styled.div`
-  /* Add your styling for MaterialDetail here */
+  max-height: ${(props) => (props.isExpanded ? "none" : "0")};
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  text-align: left;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 `;

@@ -3,16 +3,23 @@ import WeekList from "./weekList";
 
 const WeekData = [
   {
-    weekNum: 1,
-    video: "Video Title 1",
-    assignment: "Assignment Title 1",
-    discussion: "Discussion Topic 1",
+    "lessonId": 1,
+    "week": 1,
+    "start": "2023-09-25",
+    "video": "helloworld",
+    "assignmentResponseDTO": {
+      "assignmentId": 1,
+      "title": "learning print",
+      "description": "submit until 09-26",
+      "end": "2023-09-26"
+    },
   },
   {
-    weekNum: 2,
-    video: "Video Title 2",
-    assignment: "Assignment Title 2",
-    discussion: "Discussion Topic 2",
+    "lessonId": 2,
+    "week": 2,
+    "start": "2023-09-25",
+    "video": "helloworld",
+    "assignmentResponseDTO": null,
   },
 ];
 
