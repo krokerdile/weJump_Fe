@@ -82,12 +82,14 @@ const Table = () => {
     <div>
       <OutlineWrapper>
         <ScheduleHeader>
-          <span>Course Outline</span>
-          {isEditing ? (
-            <DoneButton onClick={toggleEditing} />
-          ) : (
-            <EditButton onClick={toggleEditing} />
-          )}
+          <ButtonWrapper>
+            <span>Course Outline</span>
+            {isEditing ? (
+              <DoneButton onClick={toggleEditing} />
+            ) : (
+              <EditButton onClick={toggleEditing} />
+            )}
+          </ButtonWrapper>
           <ExpandIcon isExpanded={isExpanded} onClick={toggleAccordion}>
             <img src={rectangle} alt="rectangle" width="24" height="14" />
           </ExpandIcon>
@@ -196,6 +198,10 @@ const OutlineWrapper = styled.div`
   align-items: left;
 `;
 
+const ButtonWrapper = styled.div`
+  display:flex;
+  flex-direction: row;
+`
 const TableWrapper = styled.div`
     
   table {

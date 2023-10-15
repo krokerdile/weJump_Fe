@@ -1,8 +1,8 @@
-import DefaultButton from "./DefaultButton";
+import DefaultSmallButton from "./DefaultSmallButton";
 
 const EditButton = ({onClick}) => {
     return (
-     <DefaultButton onClick={onClick} text="Edit" background="grey1" />
+     <DefaultSmallButton onClick={onClick} text="Edit" background="grey1" />
     )
 };
 

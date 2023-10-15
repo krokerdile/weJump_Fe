@@ -23,19 +23,17 @@ const Description = ({ outline }) => {
     setEditedOutline(e.target.value);
   };
 
-  const handleDone = () => {
-    toggleEdit();
-  };
-
   return (
     <DescriptionBox>
       <DescriptionHeader>
-        <span onClick={toggleAccordion}>Description</span>
-        {isEditing ? (
-          <DoneButton onClick={handleDone} />
-        ) : (
-          <EditButton onClick={toggleEdit} />
-        )}
+        <ButtonWrapper>
+          <span>Description</span>
+          {isEditing ? (
+          <DoneButton onClick={toggleEdit} />
+          ) : (
+            <EditButton onClick={toggleEdit} />
+          )}
+        </ButtonWrapper>
         <ExpandIcon isExpanded={isExpanded} onClick={toggleAccordion}>
           <img src={rectangle} alt="rectangle" width="24" height="14" />
         </ExpandIcon>
@@ -71,6 +69,11 @@ const DescriptionHeader = styled.div`
   cursor: pointer;
   background-color: #f0f0f0;
 `;
+
+const ButtonWrapper = styled.div`
+  display:flex;
+  flex-direction: row;
+`
 
 const ExpandIcon = styled.span`
   font-size: 20px;

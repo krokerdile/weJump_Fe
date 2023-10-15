@@ -23,19 +23,17 @@ const RequiredMaterials = ({ textbook }) => {
     setEditedTextbook(e.target.value);
   };
 
-  const handleDone = () => {
-    toggleEdit();
-  };
-
   return (
     <RequiredMaterialsBox>
       <RequiredMaterialsHeader>
-        <span onClick={toggleAccordion}>Required Materials</span>
-        {isEditing ? (
-          <DoneButton onClick={handleDone} />
-        ) : (
-          <EditButton onClick={toggleEdit} />
-        )}
+        <ButtonWrapper>
+          <span>Required Materials</span>
+          {isEditing ? (
+            <DoneButton onClick={toggleEdit} />
+          ) : (
+            <EditButton onClick={toggleEdit} />
+          )}
+        </ButtonWrapper>
         <ExpandIcon isExpanded={isExpanded} onClick={toggleAccordion}>
           <img src={rectangle} alt="rectangle" width="24" height="14" />
         </ExpandIcon>
@@ -71,6 +69,11 @@ const RequiredMaterialsHeader = styled.div`
   cursor: pointer;
   background-color: #f0f0f0;
 `;
+
+const ButtonWrapper = styled.div`
+  display:flex;
+  flex-direction: row;
+`
 
 const ExpandIcon = styled.span`
   font-size: 20px;

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import WeekMaterial from "./weekmaterial";
 import rectangle from "../icon/rectangle.png";
+import EditButton from "../../common/Button/EditButton";
+import DoneButton from "../../common/Button/DoneButton";
 
 const WeekData = [
   {
@@ -28,21 +30,36 @@ const WeekData = [
 const Week = ({ weekNum }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [isWeekExpanded, setIsWeekExpanded] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+
 
   const toggleWeekExpand = () => {
     e.stopPropagation();
     setIsWeekExpanded((prevState) => !prevState);
   };
 
+  const toggleEdit = () => {
+    setIsEditing((prevIsEditing) => !prevIsEditing);
+  };
+
   const toggleAccordion = () => {
-    setIsExpanded((prevState) => !prevState);
+    if (!isEditing) {
+      setIsExpanded((prevState) => !prevState);
+    }
   };
 
   return (
     <div>
       <WeekBox>
         <WeekHeader onClick={toggleWeekExpand}>
-          <span>Week {weekNum}</span>
+          <ButtonWrapper>
+            <span>Week {weekNum}</span>
+            {isEditing ? (
+              <DoneButton onClick={toggleEdit} />
+              ) : (
+              <EditButton onClick={toggleEdit} />
+            )}
+          </ButtonWrapper>       
           <ExpandIcon isExpanded={isWeekExpanded} onClick={toggleAccordion}>
             <img src={rectangle} alt="rectangle" width="24" height="14" />
           </ExpandIcon>
@@ -92,6 +109,11 @@ const WeekDetails = styled.div`
   transition: max-height 0.3s ease-in-out;
   margin-bottom: 1rem;
 `;
+
+const ButtonWrapper = styled.div`
+  display:flex;
+  flex-direction: row;
+`
 
 const ExpandIcon = styled.span`
   font-size: 20px;
